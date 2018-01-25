@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		940168939D0DD7FD2F4ACDEC /* libPods-EngineBrazeIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4FECDC29C45D001B9B92A /* libPods-EngineBrazeIntegration.a */; };
+		F63848B52011727E001EFC5C /* EngineBrazeIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = F63848B42011727E001EFC5C /* EngineBrazeIntegration.m */; };
+		F63848B62011727E001EFC5C /* EngineBrazeIntegration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F63848B32011727E001EFC5C /* EngineBrazeIntegration.h */; };
+		F64CCA412018180A00E2753B /* EngineBrazeActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F64CCA402018180A00E2753B /* EngineBrazeActionHandler.m */; };
+		F64CCA4320181A4B00E2753B /* EngineBrazeActionHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F64CCA3F2018177A00E2753B /* EngineBrazeActionHandler.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F63848AE2011727E001EFC5C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				F64CCA4320181A4B00E2753B /* EngineBrazeActionHandler.h in CopyFiles */,
+				F63848B62011727E001EFC5C /* EngineBrazeIntegration.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6DF4FECDC29C45D001B9B92A /* libPods-EngineBrazeIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EngineBrazeIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		76852532D9C55B4FFFDDE219 /* Pods-EngineBrazeIntegration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineBrazeIntegration.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineBrazeIntegration/Pods-EngineBrazeIntegration.release.xcconfig"; sourceTree = "<group>"; };
+		F63848B02011727E001EFC5C /* libEngineBrazeIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngineBrazeIntegration.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63848B32011727E001EFC5C /* EngineBrazeIntegration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EngineBrazeIntegration.h; sourceTree = "<group>"; };
+		F63848B42011727E001EFC5C /* EngineBrazeIntegration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineBrazeIntegration.m; sourceTree = "<group>"; };
+		F64CCA3F2018177A00E2753B /* EngineBrazeActionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EngineBrazeActionHandler.h; sourceTree = "<group>"; };
+		F64CCA402018180A00E2753B /* EngineBrazeActionHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineBrazeActionHandler.m; sourceTree = "<group>"; };
+		F685E2BC13A781A16A9A0641 /* Pods-EngineBrazeIntegration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineBrazeIntegration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineBrazeIntegration/Pods-EngineBrazeIntegration.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F63848AD2011727E001EFC5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				940168939D0DD7FD2F4ACDEC /* libPods-EngineBrazeIntegration.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		72AECE30DF8B654DC794ED3E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F685E2BC13A781A16A9A0641 /* Pods-EngineBrazeIntegration.debug.xcconfig */,
+				76852532D9C55B4FFFDDE219 /* Pods-EngineBrazeIntegration.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7354DB78F9C1033AB2710C31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DF4FECDC29C45D001B9B92A /* libPods-EngineBrazeIntegration.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F63848A72011727E001EFC5C = {
+			isa = PBXGroup;
+			children = (
+				F63848B22011727E001EFC5C /* EngineBrazeIntegration */,
+				F63848B12011727E001EFC5C /* Products */,
+				72AECE30DF8B654DC794ED3E /* Pods */,
+				7354DB78F9C1033AB2710C31 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F63848B12011727E001EFC5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F63848B02011727E001EFC5C /* libEngineBrazeIntegration.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F63848B22011727E001EFC5C /* EngineBrazeIntegration */ = {
+			isa = PBXGroup;
+			children = (
+				F63848B32011727E001EFC5C /* EngineBrazeIntegration.h */,
+				F63848B42011727E001EFC5C /* EngineBrazeIntegration.m */,
+				F64CCA3F2018177A00E2753B /* EngineBrazeActionHandler.h */,
+				F64CCA402018180A00E2753B /* EngineBrazeActionHandler.m */,
+			);
+			path = EngineBrazeIntegration;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F63848AF2011727E001EFC5C /* EngineBrazeIntegration */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F63848B92011727E001EFC5C /* Build configuration list for PBXNativeTarget "EngineBrazeIntegration" */;
+			buildPhases = (
+				FD643D1598B845DB23EA7E5B /* [CP] Check Pods Manifest.lock */,
+				F63848AC2011727E001EFC5C /* Sources */,
+				F63848AD2011727E001EFC5C /* Frameworks */,
+				F63848AE2011727E001EFC5C /* CopyFiles */,
+				5E68935D9F2D29FCDA837D29 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EngineBrazeIntegration;
+			productName = EngineBrazeIntegration;
+			productReference = F63848B02011727E001EFC5C /* libEngineBrazeIntegration.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F63848A82011727E001EFC5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Factual Inc.";
+				TargetAttributes = {
+					F63848AF2011727E001EFC5C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F63848AB2011727E001EFC5C /* Build configuration list for PBXProject "EngineBrazeIntegration" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F63848A72011727E001EFC5C;
+			productRefGroup = F63848B12011727E001EFC5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F63848AF2011727E001EFC5C /* EngineBrazeIntegration */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E68935D9F2D29FCDA837D29 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EngineBrazeIntegration/Pods-EngineBrazeIntegration-resources.sh",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ABKModalFeedbackViewController.xib",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ABKNavigationFeedbackViewController.xib",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ar.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/Base.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/da.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/de.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/en.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/es-419.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/es-MX.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/es.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/et.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/fi.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/fil.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/fr.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/he.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/hi.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/id.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/images/checkmark-bg.png",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/images/checkmark-bg@2x.png",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/images/checkmark.png",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/images/checkmark@2x.png",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/it.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ja.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/km.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ko.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/lo.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ms.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/my.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/nb.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/nl.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/pl.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/pt-PT.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/pt.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ru.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/sv.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/th.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/vi.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/zh-Hans.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/zh-Hant.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/zh-HK.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/zh-TW.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/zh.lproj/AppboyFeedbackLocalizable.strings",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ar.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/Base.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/da.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/de.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/en.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/es-419.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/es-MX.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/es.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/et.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/fi.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/fil.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/fr.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/he.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/hi.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/id.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/it.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ja.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/km.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ko.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/lo.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ms.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/my.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/nb.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/nl.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/pl.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/pt-PT.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/pt.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/ru.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/sv.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/th.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/vi.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/zh-Hans.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/zh-Hant.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/zh-HK.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/zh-TW.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/ABKFeedbackViewController/Feedback_Resources/zh.lproj",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/ABKInAppMessageFullViewController.xib",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/ABKInAppMessageHTMLFullViewController.xib",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/ABKInAppMessageModalViewController.xib",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/ABKInAppMessageSlideupViewController.xib",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/arrow.png",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/arrow@2x.png",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/com_appboy_inapp_close_icon.png",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/com_appboy_inapp_close_icon@2x.png",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/com_appboy_inapp_close_icon@3x.png",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/FontAwesome.otf",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyUI/InAppMessage/Resources/SlideupArrow.png",
+				"${PODS_ROOT}/Appboy-iOS-SDK/AppboyKit/Appboy.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ABKModalFeedbackViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ABKNavigationFeedbackViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppboyFeedbackLocalizable.strings",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/checkmark-bg.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/checkmark-bg@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/checkmark.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/checkmark@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ar.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Base.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/da.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/de.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/es-419.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/es-MX.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/es.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/et.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fi.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fil.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/he.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/hi.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/id.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/it.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ja.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/km.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ko.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lo.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ms.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/my.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/nb.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/nl.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pl.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-PT.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ru.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/sv.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/th.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/vi.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hant.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-HK.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-TW.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ABKInAppMessageFullViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ABKInAppMessageHTMLFullViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ABKInAppMessageModalViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ABKInAppMessageSlideupViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/arrow.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/arrow@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/com_appboy_inapp_close_icon.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/com_appboy_inapp_close_icon@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/com_appboy_inapp_close_icon@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SlideupArrow.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Appboy.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EngineBrazeIntegration/Pods-EngineBrazeIntegration-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD643D1598B845DB23EA7E5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EngineBrazeIntegration-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F63848AC2011727E001EFC5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F63848B52011727E001EFC5C /* EngineBrazeIntegration.m in Sources */,
+				F64CCA412018180A00E2753B /* EngineBrazeActionHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F63848B72011727E001EFC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F63848B82011727E001EFC5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F63848BA2011727E001EFC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F685E2BC13A781A16A9A0641 /* Pods-EngineBrazeIntegration.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GLPE4VU4FY;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F63848BB2011727E001EFC5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76852532D9C55B4FFFDDE219 /* Pods-EngineBrazeIntegration.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GLPE4VU4FY;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F63848AB2011727E001EFC5C /* Build configuration list for PBXProject "EngineBrazeIntegration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F63848B72011727E001EFC5C /* Debug */,
+				F63848B82011727E001EFC5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F63848B92011727E001EFC5C /* Build configuration list for PBXNativeTarget "EngineBrazeIntegration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F63848BA2011727E001EFC5C /* Debug */,
+				F63848BB2011727E001EFC5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F63848A82011727E001EFC5C /* Project object */;
+}

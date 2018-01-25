@@ -1,0 +1,33 @@
+PODS:
+  - Appboy-iOS-SDK (3.3.1):
+    - Appboy-iOS-SDK/UI (= 3.3.1)
+  - Appboy-iOS-SDK/Core (3.3.1)
+  - Appboy-iOS-SDK/Feedback (3.3.1):
+    - Appboy-iOS-SDK/Core
+  - Appboy-iOS-SDK/InAppMessage (3.3.1):
+    - Appboy-iOS-SDK/Core
+    - SDWebImage/GIF (~> 4.0)
+  - Appboy-iOS-SDK/UI (3.3.1):
+    - Appboy-iOS-SDK/Core
+    - Appboy-iOS-SDK/Feedback
+    - Appboy-iOS-SDK/InAppMessage
+  - FactualEngineSDK (5.3.0)
+  - FLAnimatedImage (1.0.12)
+  - SDWebImage/Core (4.2.3)
+  - SDWebImage/GIF (4.2.3):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
+
+DEPENDENCIES:
+  - Appboy-iOS-SDK (~> 3.3.1)
+  - FactualEngineSDK (~> 5.3.0)
+
+SPEC CHECKSUMS:
+  Appboy-iOS-SDK: b723369487a4f0a9c9d73655697854a19ee30814
+  FactualEngineSDK: 7fd165c1193f987d69993300e161a9b03bf6f320
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
+
+PODFILE CHECKSUM: 5bf52780348cf9939e7648dc4c1ae3e43f782f67
+
+COCOAPODS: 1.4.0
