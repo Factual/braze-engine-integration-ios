@@ -10,7 +10,7 @@
 
 @interface BrazeEngine : NSObject
 + (int) maxPlaceEventsPerCircumstanceDefault;
-+ (void) initIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxEventsPerCircumstance:(int)maxEventsPerCircumstance;
-+ (void) initIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled;
-+ (void) initIntegrationWithEngine:(FactualEngine *)engine;
++ (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxEventsPerCircumstance:(int)maxEventsPerCircumstance;
++ (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled;
++ (void) startntegrationWithEngine:(FactualEngine *)engine;
 @end

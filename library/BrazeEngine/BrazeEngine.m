@@ -15,18 +15,18 @@
     return 10;
 }
 
-+ (void) initIntegrationWithEngine:(FactualEngine *)engine {
-    [BrazeEngine initIntegrationWithEngine:engine withUserJourneyEnabled:true];
++ (void) startIntegrationWithEngine:(FactualEngine *)engine {
+    [BrazeEngine startIntegrationWithEngine:engine withUserJourneyEnabled:true];
 }
 
-+ (void) initIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled {
++ (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled {
     [BrazeEngine
-     initIntegrationWithEngine:engine
+     startIntegrationWithEngine:engine
      withUserJourneyEnabled:userJourneyEnabled
      withMaxEventsPerCircumstance:[BrazeEngine maxPlaceEventsPerCircumstanceDefault]];
 }
 
-+ (void) initIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxEventsPerCircumstance:(int)maxNumbEventsPerCircumstance {
++ (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxEventsPerCircumstance:(int)maxNumbEventsPerCircumstance {
     if (userJourneyEnabled) {
         FactualCircumstance *userJourney = [[FactualCircumstance alloc]
                                             initWithId:[EngineBrazeActionHandler userJourneyCircumstanceId]
