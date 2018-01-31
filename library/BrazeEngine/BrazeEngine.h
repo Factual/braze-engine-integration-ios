@@ -12,5 +12,5 @@
 + (int) maxPlaceEventsPerCircumstanceDefault;
 + (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxEventsPerCircumstance:(int)maxEventsPerCircumstance;
 + (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled;
-+ (void) startntegrationWithEngine:(FactualEngine *)engine;
++ (void) startIntegrationWithEngine:(FactualEngine *)engine;
 @end
