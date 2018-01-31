@@ -11,18 +11,18 @@
 
 @implementation EngineBrazeActionHandler
 {
-    NSRange _rangeOfPlaceEvents;
+    int _maxEventsPerCircumstance;
 }
 
 - (id) initWithMaxEventsPerCircumstance:(int)maxEventsPerCircumstance {
     if (self = [super init]) {
-        _rangeOfPlaceEvents = NSMakeRange(0, maxEventsPerCircumstance);
+        _maxEventsPerCircumstance = maxEventsPerCircumstance;
     }
     return self;
 }
 
 + (NSString *) uploadToBrazeActionId {
-    return @"upload_to_braze";
+    return @"push-to-braze";
 }
 
 + (NSString *) userJourneyCircumstanceId {
@@ -50,9 +50,14 @@
             [[Appboy sharedInstance] logCustomEvent:[[EngineBrazeActionHandler circumstanceEventNamePrefix] stringByAppendingString:circumstanceId]
                                      withProperties:[self createCircumstanceAppBoyProperties:incidentId withUserLocation:userLocation]];
             
-            NSArray *places = [[circumstanceResponse atPlaces] subarrayWithRange:_rangeOfPlaceEvents];
+            NSArray *places = [circumstanceResponse atPlaces];
+            int size = [places count];
+            NSMutableArray *arr = [[NSMutableArray alloc] init];
+            for (int i = 0; i < _maxEventsPerCircumstance && i < size; i++) {
+                [arr addObject:[places objectAtIndex:i]];
+            }
             
-            for(FactualPlace *factualPlace in places) {
+            for(FactualPlace *factualPlace in arr) {
                 [[Appboy sharedInstance]
                  logCustomEvent:[[EngineBrazeActionHandler circumstancePlaceEventNamePrefix] stringByAppendingString:circumstanceId]
                  withProperties:[self createPlaceAppboyProperties:factualPlace withUserLocation:userLocation withIncidenceId:incidentId]];
