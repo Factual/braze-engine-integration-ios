@@ -7,7 +7,7 @@
  */
 
 #import "EngineBrazeActionHandler.h"
-#import "Appboy-iOS-SDK/AppboyKit.h"
+#import "AppboyKit.h"
 
 @implementation EngineBrazeActionHandler
 {
