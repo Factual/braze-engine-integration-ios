@@ -13,19 +13,18 @@
 
 /**
  Configures Factual's Engine SDK to send Braze custom events whenever either
- a Engine's circumstance or user journey events are triggered. Note that
- this method assumes that both Braze and Engine SDKs have been
- already been started.
+ Engine's circumstance or user journey events are triggered. Note that
+ this method assumes that both Braze and Engine SDKs have already been started.
 
  The following three types of custom events may be sent to Braze:
  
  1) User Journey Events:
     Description: Sent when Engine detects a user journey event
     EventName: "engine_user_journey"
-    EventProperties: user location and place properties.
+    EventProperties: user location and place properties
  
  2) Circumstance Triggered Events:
-    Description: Sent when a custom Engine circumstance is triggered
+    Description: Sent when a Engine circumstance is triggered
     EventName: "engine_circumstance_" + CIRCUMSTANCE_NAME;
     EventProperties: incidenceId, user location
  
@@ -48,7 +47,6 @@
  @see BrazeEngine#startIntegrationWithEngine:withUserJourneyEnabled:withMaxPlaceAtEventsPerCircumstance:
  
  Defaults:
-    Uses default threshold for maxPlaceAtEventsPerCircumstance
     @see BrazeEngine#maxPlaceAtEventsPerCircumstanceDefault
  */
 + (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled;
@@ -57,7 +55,6 @@
  @see BrazeEngine#startIntegrationWithEngine:withUserJourneyEnabled:withMaxPlaceAtEventsPerCircumstance:
  
  Defaults:
-    Uses default threshold for maxPlaceAtEventsPerCircumstance
     Enables user journey events by default
     @see BrazeEngine#maxPlaceAtEventsPerCircumstanceDefault
  */
