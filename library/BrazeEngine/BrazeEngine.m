@@ -11,7 +11,7 @@
 
 @implementation BrazeEngine
 
-+ (int) maxPlaceEventsPerCircumstanceDefault {
++ (int) maxPlaceAtEventsPerCircumstanceDefault {
     return 10;
 }
 
@@ -23,10 +23,10 @@
     [BrazeEngine
      startIntegrationWithEngine:engine
      withUserJourneyEnabled:userJourneyEnabled
-     withMaxEventsPerCircumstance:[BrazeEngine maxPlaceEventsPerCircumstanceDefault]];
+     withMaxPlaceAtEventsPerCircumstance:[BrazeEngine maxPlaceAtEventsPerCircumstanceDefault]];
 }
 
-+ (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxEventsPerCircumstance:(int)maxNumbEventsPerCircumstance {
++ (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxPlaceAtEventsPerCircumstance:(int)maxPlaceAtEventsPerCircumstance {
     if (userJourneyEnabled) {
         FactualCircumstance *userJourney = [[FactualCircumstance alloc]
                                             initWithId:[EngineBrazeActionHandler userJourneyCircumstanceId]
@@ -35,7 +35,7 @@
         [engine registerCircumstance:userJourney];
     }
     [engine registerActionWithId:[EngineBrazeActionHandler uploadToBrazeActionId]
-                        listener:[[EngineBrazeActionHandler alloc] initWithMaxEventsPerCircumstance:maxNumbEventsPerCircumstance]];
+                        listener:[[EngineBrazeActionHandler alloc] initWithMaxEventsPerCircumstance:maxPlaceAtEventsPerCircumstance]];
 }
 
 @end
