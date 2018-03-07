@@ -17,7 +17,7 @@
 		F6F76AE620226C7500A9574B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
+			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
 				F6F76AEE20226C7500A9574B /* BrazeEngine.h in CopyFiles */,
