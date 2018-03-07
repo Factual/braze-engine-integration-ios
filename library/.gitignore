@@ -1,2 +1,6 @@
 BrazeEngine.podspec
 Podfile
+Pods/**
+Podfile
+build/**
+lib/**
