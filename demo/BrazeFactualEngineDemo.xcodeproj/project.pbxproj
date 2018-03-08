@@ -14,6 +14,7 @@
 		F655DD6320508ACB00BCC6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F655DD6220508ACB00BCC6D8 /* Assets.xcassets */; };
 		F655DD6620508ACB00BCC6D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F655DD6420508ACB00BCC6D8 /* LaunchScreen.storyboard */; };
 		F655DD6920508ACB00BCC6D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F655DD6820508ACB00BCC6D8 /* main.m */; };
+		F6F37C6C2051C40C00E8D11A /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F37C6B2051C40C00E8D11A /* Configuration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		F655DD6520508ACB00BCC6D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F655DD6720508ACB00BCC6D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F655DD6820508ACB00BCC6D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F6F37C6A2051C39E00E8D11A /* Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
+		F6F37C6B2051C40C00E8D11A /* Configuration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				F655DD6420508ACB00BCC6D8 /* LaunchScreen.storyboard */,
 				F655DD6720508ACB00BCC6D8 /* Info.plist */,
 				F655DD6820508ACB00BCC6D8 /* main.m */,
+				F6F37C6A2051C39E00E8D11A /* Configuration.h */,
+				F6F37C6B2051C40C00E8D11A /* Configuration.m */,
 			);
 			path = BrazeFactualEngineDemo;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			files = (
 				F655DD5E20508ACB00BCC6D8 /* ViewController.m in Sources */,
 				F655DD6920508ACB00BCC6D8 /* main.m in Sources */,
+				F6F37C6C2051C40C00E8D11A /* Configuration.m in Sources */,
 				F655DD5B20508ACB00BCC6D8 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

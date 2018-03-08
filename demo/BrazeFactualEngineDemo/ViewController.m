@@ -1,10 +1,10 @@
-//
-//  ViewController.m
-//  BrazeFactualEngineDemo
-//
-//  Created by Sevada Abraamyan on 3/7/18.
-//  Copyright © 2018 Factual Inc. All rights reserved.
-//
+/*
+ * Use of this software is subject to the terms and
+ * conditions of the license agreement between you
+ * and Factual Inc
+ *
+ * Copyright © 2017 Factual Inc. All rights reserved.
+ */
 
 #import "ViewController.h"
 
@@ -16,14 +16,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self addDetectButton];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
+- (void)addDetectButton {
+    [[BButton appearance] setButtonCornerRadius:@40.0f];
+    
+    CGRect frame = CGRectMake(0.0f, 0.0f, 250.0f, 75.0f);
+    BButton *btn = [[BButton alloc] initWithFrame:frame
+                                             type:BButtonTypePurple
+                                            style:BButtonStyleBootstrapV3];
+    [btn setTitle:@"Impatient? Detect location now!" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(detectAnyCircumstancesAndTrack:) forControlEvents:UIControlEventTouchUpInside];
+    btn.enabled = YES;
+    btn.center = self.view.center;
+    [self.view addSubview:btn];
+}
 
+- (void)detectAnyCircumstancesAndTrack:(UIButton *)sender {
+    NSLog(@"Triggered!");
+    [[AppDelegate engine] runCircumstances];
+}
 @end

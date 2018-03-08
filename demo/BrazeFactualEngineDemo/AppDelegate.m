@@ -1,51 +1,88 @@
-//
-//  AppDelegate.m
-//  BrazeFactualEngineDemo
-//
-//  Created by Sevada Abraamyan on 3/7/18.
-//  Copyright © 2018 Factual Inc. All rights reserved.
-//
+/*
+ * Use of this software is subject to the terms and
+ * conditions of the license agreement between you
+ * and Factual Inc
+ *
+ * Copyright © 2017 Factual Inc. All rights reserved.
+ */
+
 
 #import "AppDelegate.h"
+#import "BrazeEngine.h"
+#import "Configuration.h"
+
+@interface AppboyEndpointDelegate : NSObject <ABKAppboyEndpointDelegate>
+@end
+
+@implementation AppboyEndpointDelegate
+- (NSString *) getApiEndpoint:(NSString *)appboyApiEndpoint {
+    return [appboyApiEndpoint stringByReplacingOccurrencesOfString:@"dev.appboy.com" withString:[Configuration brazeEndpoint]];
+}
+
+@end
+static FactualEngine *_engine = nil;
 
 @interface AppDelegate ()
-
+@property CLLocationManager *manager; // Engine assumes you are managing location permissions
 @end
 
 @implementation AppDelegate
++ (void) setEngine:(FactualEngine *)engine {
+    _engine = engine;
+}
 
++ (FactualEngine *) engine {
+    return _engine;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // for demonstration, we're requesting location permissions here:
+    if (_manager == nil) {
+        _manager = [[CLLocationManager alloc] init];
+    }
+    [_manager requestAlwaysAuthorization];
+    // start the SDK.
+    // Note, you don't need to worry about whether or not the necessary
+    // authorizations have returned from the user before calling start.
+    // Engine will automatically detect for any changes to location
+    // authorizations and behave accordingly.
+    [FactualEngine startWithApiKey:[Configuration engineApiKey]
+                          delegate:self]; // FactualEngineDelegate
+    
+    [Appboy startWithApiKey:[Configuration brazeApiKey]
+              inApplication:application
+          withLaunchOptions:launchOptions
+          withAppboyOptions:@{ABKAppboyEndpointDelegateKey: [[AppboyEndpointDelegate alloc] init]}];
+    
     return YES;
 }
 
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+// ---- methods to support the FactualEngineDelegate interface ----
+- (void)engineDidStartWithInstance:(FactualEngine *)engine {
+    NSLog(@"Engine started.");
+    [engine syncWithGarage];
+    [AppDelegate setEngine:engine];
+    [BrazeEngine startIntegrationWithEngine:engine];
 }
 
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)engineDidStop{
+    NSLog(@"Engine stopped.");
 }
 
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+- (void)engineDidFailWithError:(FactualError *)error{
+    NSLog(@"Engine error: %@", [error message]);
 }
 
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)engineDidReportInfo:(NSString *)infoMessage{
+    NSLog(@"Engine debug info: %@", infoMessage);
 }
 
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)engineDidSyncWithGarage{
+    NSLog(@"Engine updated configuration.");
 }
 
-
+- (void)engineDidLoadConfig:(FactualConfigMetadata *)data{
+    NSLog(@"Engine config loaded: %@", [data version]);
+}
 @end
