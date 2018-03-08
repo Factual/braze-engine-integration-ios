@@ -20,6 +20,16 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Grant Location Permissions</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Grant Location Permissions</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Grant Location Permissions</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
