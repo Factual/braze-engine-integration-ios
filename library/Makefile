@@ -14,7 +14,7 @@ BUILD_CONFIGURATION := Release
 
 ARM_DIR = $(BUILD_OUTPUT)/$(BUILD_CONFIGURATION)-iphoneos
 X86_DIR = $(BUILD_OUTPUT)/$(BUILD_CONFIGURATION)-iphonesimulator
-BRAZE_ENGINE_LIB = BrazeEngineIntegration.a
+BRAZE_ENGINE_LIB = libBrazeEngine.a
 BRAZE_ENGINE_HEADERS = *.h
 
 braze-engine: braze-engine-x86 braze-engine-arm

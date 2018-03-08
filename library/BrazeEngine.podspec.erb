@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :http => "https://factual.bintray.com/files/braze-engine-ios-#{s.version.to_s}.tar.gz", :flatten => true }
   s.source_files         = "*.h"
-  s.preserve_paths       = "libBrazeEngineIntegration.a"
-  s.ios.vendored_library = "libBrazeEngineIntegration.a"
+  s.preserve_paths       = "libBrazeEngine.a"
+  s.ios.vendored_library = "libBrazeEngine.a"
   s.libraries            = "z"  
   s.dependency "Appboy-iOS-SDK", "~> <%= versions_map[:appboy] %>"
   s.dependency "FactualEngineSDK", "<%= versions_map[:factual_engine] %>"
