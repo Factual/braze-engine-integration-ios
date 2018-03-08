@@ -6,10 +6,10 @@
  * Copyright © 2018 Factual Inc. All rights reserved.
  */
 
-#import "EngineBrazeActionHandler.h"
+#import "BrazeEngineActionHandler.h"
 #import "AppboyKit.h"
 
-@implementation EngineBrazeActionHandler
+@implementation BrazeEngineActionHandler
 {
     int _maxEventsPerCircumstance;
 }
@@ -42,12 +42,12 @@
         NSString *circumstanceId = [[circumstanceResponse circumstance] circumstanceId];
         CLLocation *userLocation = [circumstanceResponse deviceLocation];
         
-        if ([circumstanceId isEqualToString:[EngineBrazeActionHandler userJourneyCircumstanceId]]) {
+        if ([circumstanceId isEqualToString:[BrazeEngineActionHandler userJourneyCircumstanceId]]) {
             FactualPlace *place = [[circumstanceResponse atPlaces] firstObject];
             [[Appboy sharedInstance] logCustomEvent:circumstanceId withProperties:[self createPlaceAppboyProperties:place withUserLocation:userLocation]];
         } else {
             NSString *incidentId = [[NSUUID UUID] UUIDString];
-            [[Appboy sharedInstance] logCustomEvent:[[EngineBrazeActionHandler circumstanceEventNamePrefix] stringByAppendingString:circumstanceId]
+            [[Appboy sharedInstance] logCustomEvent:[[BrazeEngineActionHandler circumstanceEventNamePrefix] stringByAppendingString:circumstanceId]
                                      withProperties:[self createCircumstanceAppBoyProperties:incidentId withUserLocation:userLocation]];
             
             NSArray *places = [circumstanceResponse atPlaces];
@@ -59,7 +59,7 @@
             
             for(FactualPlace *factualPlace in arr) {
                 [[Appboy sharedInstance]
-                 logCustomEvent:[[EngineBrazeActionHandler circumstancePlaceEventNamePrefix] stringByAppendingString:circumstanceId]
+                 logCustomEvent:[[BrazeEngineActionHandler circumstancePlaceEventNamePrefix] stringByAppendingString:circumstanceId]
                  withProperties:[self createPlaceAppboyProperties:factualPlace withUserLocation:userLocation withIncidenceId:incidentId]];
             }
         }

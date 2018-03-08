@@ -7,7 +7,7 @@
  */
 
 #import "BrazeEngine.h"
-#import "EngineBrazeActionHandler.h"
+#import "BrazeEngineActionHandler.h"
 
 @implementation BrazeEngine
 
@@ -29,13 +29,13 @@
 + (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxPlaceAtEventsPerCircumstance:(int)maxPlaceAtEventsPerCircumstance {
     if (userJourneyEnabled) {
         FactualCircumstance *userJourney = [[FactualCircumstance alloc]
-                                            initWithId:[EngineBrazeActionHandler userJourneyCircumstanceId]
+                                            initWithId:[BrazeEngineActionHandler userJourneyCircumstanceId]
                                             expr:@"(at any-factual-place)"
-                                            actionId:[EngineBrazeActionHandler uploadToBrazeActionId]];
+                                            actionId:[BrazeEngineActionHandler uploadToBrazeActionId]];
         [engine registerCircumstance:userJourney];
     }
-    [engine registerActionWithId:[EngineBrazeActionHandler uploadToBrazeActionId]
-                        listener:[[EngineBrazeActionHandler alloc] initWithMaxEventsPerCircumstance:maxPlaceAtEventsPerCircumstance]];
+    [engine registerActionWithId:[BrazeEngineActionHandler uploadToBrazeActionId]
+                        listener:[[BrazeEngineActionHandler alloc] initWithMaxEventsPerCircumstance:maxPlaceAtEventsPerCircumstance]];
 }
 
 @end
