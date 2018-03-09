@@ -40,6 +40,7 @@
 - (void)circumstancesDidOccur:(NSArray<CircumstanceResponse *> *)circumstanceResponses {
     for (CircumstanceResponse *circumstanceResponse in circumstanceResponses) {
         NSString *circumstanceId = [[circumstanceResponse circumstance] circumstanceId];
+        NSString *name = [[circumstanceResponse circumstance] name];
         CLLocation *userLocation = [circumstanceResponse deviceLocation];
         
         if ([circumstanceId isEqualToString:[BrazeEngineActionHandler userJourneyCircumstanceId]]) {
@@ -47,7 +48,7 @@
             [[Appboy sharedInstance] logCustomEvent:circumstanceId withProperties:[self createPlaceAppboyProperties:place withUserLocation:userLocation]];
         } else {
             NSString *incidentId = [[NSUUID UUID] UUIDString];
-            [[Appboy sharedInstance] logCustomEvent:[[BrazeEngineActionHandler circumstanceEventNamePrefix] stringByAppendingString:circumstanceId]
+            [[Appboy sharedInstance] logCustomEvent:[[BrazeEngineActionHandler circumstanceEventNamePrefix] stringByAppendingString:name]
                                      withProperties:[self createCircumstanceAppBoyProperties:incidentId withUserLocation:userLocation]];
             
             NSArray *places = [circumstanceResponse atPlaces];
@@ -59,7 +60,7 @@
             
             for(FactualPlace *factualPlace in arr) {
                 [[Appboy sharedInstance]
-                 logCustomEvent:[[BrazeEngineActionHandler circumstancePlaceEventNamePrefix] stringByAppendingString:circumstanceId]
+                 logCustomEvent:[[BrazeEngineActionHandler circumstancePlaceEventNamePrefix] stringByAppendingString:name]
                  withProperties:[self createPlaceAppboyProperties:factualPlace withUserLocation:userLocation withIncidenceId:incidentId]];
             }
         }
