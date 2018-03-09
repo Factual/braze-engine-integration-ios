@@ -63,7 +63,7 @@ static FactualEngine *_engine = nil;
     NSLog(@"Engine started.");
     [engine syncWithGarage];
     [AppDelegate setEngine:engine];
-    [BrazeEngine startIntegrationWithEngine:engine];
+    [BrazeEngine trackUserJourneyAndCircumstancesWithEngine:engine];
 }
 
 - (void)engineDidStop{
