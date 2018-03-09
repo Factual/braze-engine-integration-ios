@@ -4,7 +4,7 @@ This app demonstrates the usage of the Braze/Engine integration library.
 
 # Requirements
 
-Set proper values in ``Configuration.h`` for both Factual Engine SDK API and Braze Android SDK API key/endpoint. [see here](demo/BrazeFactualEngineDemo/Configuration.m) 
+Set proper values in ``Configuration.h`` for both Factual Engine SDK API and Braze Android SDK API key/endpoint. [see here](BrazeFactualEngineDemo/Configuration.m) 
 
 ```objective-c
 @implementation Configuration
