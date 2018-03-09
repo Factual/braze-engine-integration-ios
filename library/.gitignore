@@ -4,3 +4,4 @@ Pods/**
 Podfile
 build/**
 lib/**
+*.tar.gz
