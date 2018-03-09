@@ -41,22 +41,22 @@
  @param userJourneyEnabled whether Engine's user journey events should trigger a Braze event
  @param maxPlaceAtEventsPerCircumstance max number of PlaceAt events to send to Braze. Sent in order of decreasing confidence.
  */
-+ (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxPlaceAtEventsPerCircumstance:(int)maxPlaceAtEventsPerCircumstance;
++ (void) trackCircumstancesWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxPlaceAtEventsPerCircumstance:(int)maxPlaceAtEventsPerCircumstance;
 
 /**
- @see BrazeEngine#startIntegrationWithEngine:withUserJourneyEnabled:withMaxPlaceAtEventsPerCircumstance:
+ @see BrazeEngine#trackCircumstancesWithEngine:withUserJourneyEnabled:withMaxPlaceAtEventsPerCircumstance:
  
  Defaults:
     @see BrazeEngine#maxPlaceAtEventsPerCircumstanceDefault
  */
-+ (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled;
++ (void) trackCircumstancesWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled;
 
 /**
- @see BrazeEngine#startIntegrationWithEngine:withUserJourneyEnabled:withMaxPlaceAtEventsPerCircumstance:
+ @see BrazeEngine#trackCircumstancesWithEngine:withUserJourneyEnabled:withMaxPlaceAtEventsPerCircumstance:
  
  Defaults:
     Enables user journey events by default
     @see BrazeEngine#maxPlaceAtEventsPerCircumstanceDefault
  */
-+ (void) startIntegrationWithEngine:(FactualEngine *)engine;
++ (void) trackUserJourneyAndCircumstancesWithEngine:(FactualEngine *)engine;
 @end
