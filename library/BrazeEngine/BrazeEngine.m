@@ -7,7 +7,7 @@
  */
 
 #import "BrazeEngine.h"
-#import "EngineBrazeActionHandler.h"
+#import "BrazeEngineActionHandler.h"
 
 @implementation BrazeEngine
 
@@ -15,27 +15,27 @@
     return 10;
 }
 
-+ (void) startIntegrationWithEngine:(FactualEngine *)engine {
-    [BrazeEngine startIntegrationWithEngine:engine withUserJourneyEnabled:true];
++ (void) trackUserJourneyAndCircumstancesWithEngine:(FactualEngine *)engine {
+    [BrazeEngine trackCircumstancesWithEngine:engine withUserJourneyEnabled:true];
 }
 
-+ (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled {
++ (void) trackCircumstancesWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled {
     [BrazeEngine
-     startIntegrationWithEngine:engine
+     trackCircumstancesWithEngine:engine
      withUserJourneyEnabled:userJourneyEnabled
      withMaxPlaceAtEventsPerCircumstance:[BrazeEngine maxPlaceAtEventsPerCircumstanceDefault]];
 }
 
-+ (void) startIntegrationWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxPlaceAtEventsPerCircumstance:(int)maxPlaceAtEventsPerCircumstance {
++ (void) trackCircumstancesWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxPlaceAtEventsPerCircumstance:(int)maxPlaceAtEventsPerCircumstance {
     if (userJourneyEnabled) {
         FactualCircumstance *userJourney = [[FactualCircumstance alloc]
-                                            initWithId:[EngineBrazeActionHandler userJourneyCircumstanceId]
+                                            initWithId:[BrazeEngineActionHandler userJourneyCircumstanceId]
                                             expr:@"(at any-factual-place)"
-                                            actionId:[EngineBrazeActionHandler uploadToBrazeActionId]];
+                                            actionId:[BrazeEngineActionHandler uploadToBrazeActionId]];
         [engine registerCircumstance:userJourney];
     }
-    [engine registerActionWithId:[EngineBrazeActionHandler uploadToBrazeActionId]
-                        listener:[[EngineBrazeActionHandler alloc] initWithMaxEventsPerCircumstance:maxPlaceAtEventsPerCircumstance]];
+    [engine registerActionWithId:[BrazeEngineActionHandler uploadToBrazeActionId]
+                        listener:[[BrazeEngineActionHandler alloc] initWithMaxEventsPerCircumstance:maxPlaceAtEventsPerCircumstance]];
 }
 
 @end

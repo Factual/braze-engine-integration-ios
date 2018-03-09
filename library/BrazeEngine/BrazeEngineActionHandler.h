@@ -11,7 +11,7 @@
 
 #import "FactualEngine.h"
 
-@interface EngineBrazeActionHandler : NSObject<FactualActionDelegate>
+@interface BrazeEngineActionHandler : NSObject<FactualActionDelegate>
 + (NSString *) uploadToBrazeActionId;
 + (NSString *) userJourneyCircumstanceId;
 + (NSString *) circumstanceEventNamePrefix;
