@@ -28,11 +28,10 @@
 
 + (void) trackCircumstancesWithEngine:(FactualEngine *)engine withUserJourneyEnabled:(BOOL)userJourneyEnabled withMaxPlaceAtEventsPerCircumstance:(int)maxPlaceAtEventsPerCircumstance {
     if (userJourneyEnabled) {
-        FactualCircumstance *userJourney = [[FactualCircumstance alloc]
-                                            initWithId:[BrazeEngineActionHandler userJourneyCircumstanceId]
-                                            expr:@"(at any-factual-place)"
-                                            actionId:[BrazeEngineActionHandler uploadToBrazeActionId]];
-        [engine registerCircumstance:userJourney];
+        [engine registerCircumstance:[[FactualCircumstance alloc]
+                                       initWithId:[BrazeEngineActionHandler userJourneyCircumstanceId]
+                                       expr:@"(at any-factual-place)"
+                                       actionId:[BrazeEngineActionHandler uploadToBrazeActionId]]];
     }
     [engine registerActionWithId:[BrazeEngineActionHandler uploadToBrazeActionId]
                         listener:[[BrazeEngineActionHandler alloc] initWithMaxEventsPerCircumstance:maxPlaceAtEventsPerCircumstance]];
