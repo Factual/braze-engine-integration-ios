@@ -1,4 +1,4 @@
 {
   :appboy    => '3.3.1',
-  :factual_engine  => '5.6.0'
+  :factual_engine  => '7.5.0'
 }

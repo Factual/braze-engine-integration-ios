@@ -51,5 +51,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>Appboy</key>
+	<dict>
+		<key>LogLevel</key>
+		<string>0</string>
+	</dict>
 </dict>
 </plist>

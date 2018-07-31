@@ -85,4 +85,9 @@ static FactualEngine *_engine = nil;
 - (void)engineDidLoadConfig:(FactualConfigMetadata *)data{
     NSLog(@"Engine config loaded: %@", [data version]);
 }
+
+- (void)engineDidReportDiagnosticMessage:(NSString *)diagnosticMessage{
+    NSLog(@"Engine diagnostic message: %@", diagnosticMessage);
+}
+
 @end
