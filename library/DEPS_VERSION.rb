@@ -1,3 +1,3 @@
 {
-  :factual_engine  => '8.4.0'
+  :factual_engine  => '8.4'
 }
