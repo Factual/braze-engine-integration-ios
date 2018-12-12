@@ -62,7 +62,7 @@ is met. The following is a description of the custom events sent to Braze:
 source 'https://github.com/Factual/cocoapods.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '10.3'
+platform :ios, '8.0'
 
 target 'YourApp' do
   pod 'BrazeEngine'
