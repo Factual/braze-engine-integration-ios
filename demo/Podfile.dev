@@ -5,8 +5,6 @@ platform :ios, '10.3'
 
 target 'BrazeFactualEngineDemo' do
   use_frameworks!
-  pod "Appboy-iOS-SDK/Core", "3.3.1"
-  pod "FactualEngineSDK", "7.5.0"
-  pod "BrazeEngine", "1.1.0"
+  pod "BrazeEngine", "1.2.0-rc"
   pod "BButton"
 end
