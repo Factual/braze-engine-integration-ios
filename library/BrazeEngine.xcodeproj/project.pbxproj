@@ -106,7 +106,6 @@
 				F6F76AE420226C7500A9574B /* Sources */,
 				F6F76AE520226C7500A9574B /* Frameworks */,
 				F6F76AE620226C7500A9574B /* CopyFiles */,
-				01393149CF128D34F1B6A685 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -150,21 +149,6 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01393149CF128D34F1B6A685 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BrazeEngine/Pods-BrazeEngine-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F2F92BFA1B083F27BE90473D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
