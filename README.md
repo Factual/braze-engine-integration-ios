@@ -69,8 +69,11 @@ target 'YourApp' do
 end
 ```
 
+### Note: Cocoapods and Firebase
+Installing both Firebase and Engine through Cocoapods creates a compatibility issue. To work around the issue, remove the line `pod 'BrazeEngine'` from your Podfile, re-run `pod install`, and manually install both Engine and the BrazeEngine integration library according to [Manual Installation](#manual-installation), below.
+
 ## Manual installation
-Download the library from [Bintray](https://factual.bintray.com/files) and add it to your Xcode project.
+Download the BrazeEngine static library from [Bintray](https://factual.bintray.com/files) and add it to your Xcode project. Static library installation is explained at [Copying the Engine SDK to your project](http://developer.factual.com/engine/ios/#copy-the-sdk-to-your-project). Make sure to add both libBrazeEngine.a and libFactualEngine.a (if you do not have it already).
 
 ***Note: You must have Engine SDK already added to your Xcode project in order to use the library.***
 
