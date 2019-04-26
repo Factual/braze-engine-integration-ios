@@ -1,0 +1,14 @@
+source 'git@github.com:Factual/cocoapods.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
+target 'BrazeFactualEngineDemo' do
+  use_frameworks!
+  pod "BrazeEngine"
+  pod "BButton"
+
+  target 'BrazeFactualEngineDemoTests' do
+    inherit! :search_paths
+  end
+end
