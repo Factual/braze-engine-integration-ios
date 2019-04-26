@@ -11,35 +11,35 @@
 @implementation StubConfiguration
 
 + (NSString *)engineApiKey {
-    return @"YOUR_ENGINE_API_KEY_HERE";
+    return @"Your Engine API Key here";
 }
 
 + (NSString *)brazeApiKey {
-    return @"YOUR_BRAZE_API_KEY_HERE";
+    return @"Your Braze API Key here";
 }
 
 + (NSString *)brazeEndpoint {
-    return @"YOUR_BRAZE_API_KEY_HERE";
+    return @"Your Braze SDK Endpoint here";
 }
 
 + (NSString *)brazeRestApiKey {
-    return @"YOUR_BRAZE_REST_API_KEY_HERE";
+    return @"Your Braze Rest API Key here";
 }
 
 + (NSString *)brazeRestEndpoint {
-    return @"YOUR_BRAZE_REST_ENDPOINT_HERE";
+    return @"Your Braze Rest Endpoint here";
 }
 
 + (NSString *)testUser {
-    return @"YOUR_BRAZE_USER_ID_HERE";
+    return @"Your Braze User ID here";
 }
 
 + (NSString *)testEmail {
-    return @"YOUR_BRAZE_USER_EMAIL_HERE";
+    return @"Your Braze User Email here";
 }
 
 + (NSString *)circumstanceName {
-    return @"YOUR_CIRCUMSTANCE_NAME_HERE";
+    return @"Your Factual Engine Circumstance Name here";
 }
 
 // Change testLatitude and testLongitude to a location that will trigger your circumstance

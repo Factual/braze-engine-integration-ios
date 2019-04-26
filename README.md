@@ -1,62 +1,17 @@
-# Description
+# Factual / Braze SDK for iOS
 
-This repository contains the code for an integration between Factual's Engine SDK and Braze SDK. 
-Using this integration library you can configure Factual's Engine SDK to send Braze custom events
-when the user is at a known factual place or when an engine circumstance with the actionId ```push-to-braze```
-is met. The following is a description of the custom events sent to Braze: 
+This repository contains the code for an integration between [Factual's Engine SDK](https://www.factual.com/products/engine/)
+and [Braze SDK](https://www.braze.com/). Using this library you can configure Factual's Location Engine SDK to send custom
+events to Braze to better understand users in the physical world and build personalized experiences to drive user
+engagement and revenue.
 
-## User Journey Events
+### Integration with Braze UI
 
-***Name***: engine_user_journey
-
-***Description***: User has visited a known factual place
-
-***Properties***: 
-* name (place name)
-* factual_id (factual unique identifier for place)
-* latitude
-* longitude
-* user_latitude
-* user_longitude 
-* place_categories (comma separated factual category ids)
-
-## Circumstance Met Events
-
-***Name***: engine_circumstance_[CIRCUMSTANCE_NAME]
-
-***Description***: A circumstance with actionId ```push-to-braze``` has been met
-
-***Properties***: 
-* incidence_id
-* user_latitude
-* user_longitude
-
-## Circumstance Met At Place
-
-***Name***: engine_circumstance_place_at_[CIRCUMSTANCE_NAME]
-
-***Properties***: 
-* incidence_id
-* name (place name)
-* factual_id (factual unique identifier for place)
-* latitude
-* longitude
-* user_latitude
-* user_longitude 
-* place_categories (comma separated factual category ids)
-
-***Description***: Additional place related information about place at which the circumstance was met. 
-             Based on the specificity of the circumstance rule it is possible that multiple places may
-             simultaneously trigger the circumstance. We choose to not include all of the places within the 
-             event properties of a single event to simplify the usage within the Braze dashboard. 
-             Instead, for each place that triggered the original circumstance we send a slightly 
-             different custom event.
-             
-***Note***: Use incidence_id to map the different Braze circumstance events to a single instance of an Engine circumstance met.
+see: [braze-engine-integration](https://github.com/Factual/braze-engine-integration)
 
 # Installation
 
-## Cocoapods
+### Cocoapods
 
 ```ruby
 source 'https://github.com/Factual/cocoapods.git'
@@ -69,31 +24,67 @@ target 'YourApp' do
 end
 ```
 
-### Note: Cocoapods and Firebase
-Installing both Firebase and Engine through Cocoapods creates a compatibility issue. To work around the issue, remove the line `pod 'BrazeEngine'` from your Podfile, re-run `pod install`, and manually install both Engine and the BrazeEngine integration library according to [Manual Installation](#manual-installation), below.
-
-## Manual installation
-Download the BrazeEngine static library from [Bintray](https://factual.bintray.com/files) and add it to your Xcode project. Static library installation is explained at [Copying the Engine SDK to your project](http://developer.factual.com/engine/ios/#copy-the-sdk-to-your-project). Make sure to add both libBrazeEngine.a and libFactualEngine.a (if you do not have it already).
-
-***Note: You must have Engine SDK already added to your Xcode project in order to use the library.***
-
-
-# Usage Requirements
-
-* Configured and started `Engine` client. [see here](http://developer.factual.com/engine/ios/)
-* Configured `Appboy` client. [see here](https://www.braze.com/documentation/iOS/#initial-sdk-setup)
+### Manual installation
+Download the library from [Bintray](https://factual.bintray.com/files/) and add it to your Xcode project. Note that the Engine SDK must be added to your Xcode project in order to use this library. Please refer to the [Factual Developer Docs](http://developer.factual.com)
 
 # Usage
 
-Start tracking Factual's Engine UserJourney and Circumstance events after receiving the engine started
-callback within FactualEngineDelegate. 
+### Requirements
+* Configured and started `Engine` client. [see here](http://developer.factual.com/engine/ios/)
+* Configured `Braze` client. [see here](https://www.braze.com/documentation/iOS/#initial-sdk-setup)
+
+### Tracking Factual Engine Circumstances
+
+Start tracking Engine's Circumstance events after receiving the Engine started callback within the FactualEngineDelegate.
 
 ```objective-c
 - (void)engineDidStartWithInstance:(FactualEngine *)engine {
-  //Track both user journey and circumstance events
-  [BrazeEngine trackUserJourneyAndCircumstancesWithEngine:engine]
+  NSLog(@"Engine started.");
+
+  // Max number of "engine_circumstance_at_place" events that should be sent per "engine_circumstance_met"
+  // default is set to 10.
+  int maxAtPlaceEvents = 3;
+
+  // Max number of "engine_circumstance_at_place" events that should be sent per "engine_circumstance_met"
+  // default is set to 10.
+  int maxNearPlaceEvents = 5;
+
+  [BrazeEngine trackCircumstancesWithEngine:engine
+        withMaxAtPlaceEventsPerCircumstance:maxAtPlaceEvents
+      withMaxNearPlaceEventsPerCircumstance:maxNearPlaceEvents];
 }
 ```
+
+### Tracking Factual Engine User Journey Spans
+
+Start tracking User Journey Spans by first adding the `BrazeEngineUserJourneyHandler` delegate on
+`[FactualEngine startWithApiKey:delegate:userJourneyDelegate:]`
+
+```objective-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+  ...
+
+  // Max number of "engine_span_attached_place" events that should be sent per "engine_span_occurred"
+  // default is 20.
+  int maxAttachedPlaces = 10;
+  [FactualEngine startWithApiKey:[Configuration engineApiKey]
+                        delegate:[self engineDelegate]
+             userJourneyDelegate:[[BrazeEngineUserJourneyHandler alloc] initWithMaxAttachedPlaceEventsPerEvent:maxAttachedPlaces]];
+
+  return YES;
+}
+```
+
+Then in the Engine started callback within the FactualEngineDelegate add the line `[BrazeEngine trackUserJourneySpans];`
+
+```objective-c
+- (void)engineDidStartWithInstance:(FactualEngine *)engine {
+  NSLog(@"Engine started.");
+  [BrazeEngine trackUserJourneySpans];
+}
+```
+
 
 ```objective-c
 - (void)engineDidStartWithInstance:(FactualEngine *)engine {
@@ -102,6 +93,8 @@ callback within FactualEngineDelegate.
 }
 ```
 
-# Demo App
+Please refer to the [Factual Developer Docs](http://developer.factual.com) for more information about Engine.
 
-A demo app is included in this repository to demonstrate the usage of this library. [see here](demo)
+# Example App
+
+A example app is included in this repository to demonstrate the usage of this library, see [./example](./example) for documentation and usage instructions.
