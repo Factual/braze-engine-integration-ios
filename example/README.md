@@ -30,7 +30,7 @@ pod install
 
 ### Testing
 
-If you'd like to test the integration, an example test is given.  To run the test, fill out your information in StubConfiguration.m.  Change the `testLatitude` and `testLongitude` variables to coordinates of a place which would trigger your Engine Circumstance.
+If you'd like to test the integration, an example test is given.  To run the test, fill out your information in StubConfiguration.m.  Change the `testLatitude` and `testLongitude` variables to coordinates of a place which would trigger your Engine Circumstance.  Your `brazeRestEndpoint` is the same as your SDK Endpoint after replacing 'sdk' with 'rest'.
 
 ### Explore
 
