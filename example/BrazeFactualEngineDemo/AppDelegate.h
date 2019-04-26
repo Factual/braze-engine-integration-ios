@@ -3,17 +3,16 @@
  * conditions of the license agreement between you
  * and Factual Inc
  *
- * Copyright © 2017 Factual Inc. All rights reserved.
+ * Copyright © 2019 Factual Inc. All rights reserved.
  */
 
 #import <UIKit/UIKit.h>
-#import "FactualEngine.h"
 #import "Appboy_iOS_SDK/AppboyKit.h"
+#import "FactualEngine.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, FactualEngineDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (class, readwrite) FactualEngine *engine;
 
 @end
 

@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EA8B7FFFA40F0EB12D1FE33 /* Pods_BrazeFactualEngineDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9338EBF5DD0A60A49C6A0BFE /* Pods_BrazeFactualEngineDemoTests.framework */; };
 		8EDAFF11DCBC6A0463C34C49 /* Pods_BrazeFactualEngineDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E846BC4DF213C7D0B7A19EC7 /* Pods_BrazeFactualEngineDemo.framework */; };
+		D8164A71227230890048C104 /* StubConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = D8164A70227230890048C104 /* StubConfiguration.m */; };
+		D8164A74227230A60048C104 /* StubEngineDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8164A73227230A60048C104 /* StubEngineDelegate.m */; };
+		D84E9DF622713D8300049C34 /* BrazeFactualEngineDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D84E9DF522713D8300049C34 /* BrazeFactualEngineDemoTests.m */; };
+		D8DCF1622273ADD50061D25C /* EngineDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DCF1612273ADD50061D25C /* EngineDelegate.m */; };
 		F655DD5B20508ACB00BCC6D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F655DD5A20508ACB00BCC6D8 /* AppDelegate.m */; };
 		F655DD5E20508ACB00BCC6D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F655DD5D20508ACB00BCC6D8 /* ViewController.m */; };
 		F655DD6120508ACB00BCC6D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F655DD5F20508ACB00BCC6D8 /* Main.storyboard */; };
@@ -17,9 +22,32 @@
 		F6F37C6C2051C40C00E8D11A /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F37C6B2051C40C00E8D11A /* Configuration.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D84E9DF822713D8300049C34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F655DD4E20508ACB00BCC6D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F655DD5520508ACB00BCC6D8;
+			remoteInfo = BrazeFactualEngineDemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		081179F51B793F5BB94FA347 /* Pods-BrazeFactualEngineDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrazeFactualEngineDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrazeFactualEngineDemo/Pods-BrazeFactualEngineDemo.release.xcconfig"; sourceTree = "<group>"; };
 		38DB5A93357E528625029F49 /* Pods-BrazeFactualEngineDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrazeFactualEngineDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrazeFactualEngineDemo/Pods-BrazeFactualEngineDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		3B93B29B0701A92047585F98 /* Pods-BrazeFactualEngineDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrazeFactualEngineDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrazeFactualEngineDemoTests/Pods-BrazeFactualEngineDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D705A7E3D93482690CB6644 /* Pods-BrazeFactualEngineDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrazeFactualEngineDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrazeFactualEngineDemoTests/Pods-BrazeFactualEngineDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		9338EBF5DD0A60A49C6A0BFE /* Pods_BrazeFactualEngineDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrazeFactualEngineDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8164A6F227230770048C104 /* StubConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StubConfiguration.h; sourceTree = "<group>"; };
+		D8164A70227230890048C104 /* StubConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StubConfiguration.m; sourceTree = "<group>"; };
+		D8164A72227230990048C104 /* StubEngineDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StubEngineDelegate.h; sourceTree = "<group>"; };
+		D8164A73227230A60048C104 /* StubEngineDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StubEngineDelegate.m; sourceTree = "<group>"; };
+		D84E9DE92270E9AD00049C34 /* BrazeFactualEngineDemo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BrazeFactualEngineDemo.entitlements; sourceTree = "<group>"; };
+		D84E9DF322713D8300049C34 /* BrazeFactualEngineDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrazeFactualEngineDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D84E9DF522713D8300049C34 /* BrazeFactualEngineDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrazeFactualEngineDemoTests.m; sourceTree = "<group>"; };
+		D84E9DF722713D8300049C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8DCF1602273ADCB0061D25C /* EngineDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EngineDelegate.h; sourceTree = "<group>"; };
+		D8DCF1612273ADD50061D25C /* EngineDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineDelegate.m; sourceTree = "<group>"; };
 		E846BC4DF213C7D0B7A19EC7 /* Pods_BrazeFactualEngineDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrazeFactualEngineDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F655DD5620508ACB00BCC6D8 /* BrazeFactualEngineDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrazeFactualEngineDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F655DD5920508ACB00BCC6D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,6 +64,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D84E9DF022713D8300049C34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EA8B7FFFA40F0EB12D1FE33 /* Pods_BrazeFactualEngineDemoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F655DD5320508ACB00BCC6D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,6 +88,8 @@
 			children = (
 				38DB5A93357E528625029F49 /* Pods-BrazeFactualEngineDemo.debug.xcconfig */,
 				081179F51B793F5BB94FA347 /* Pods-BrazeFactualEngineDemo.release.xcconfig */,
+				3B93B29B0701A92047585F98 /* Pods-BrazeFactualEngineDemoTests.debug.xcconfig */,
+				4D705A7E3D93482690CB6644 /* Pods-BrazeFactualEngineDemoTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -60,14 +98,29 @@
 			isa = PBXGroup;
 			children = (
 				E846BC4DF213C7D0B7A19EC7 /* Pods_BrazeFactualEngineDemo.framework */,
+				9338EBF5DD0A60A49C6A0BFE /* Pods_BrazeFactualEngineDemoTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D84E9DF422713D8300049C34 /* BrazeFactualEngineDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				D84E9DF522713D8300049C34 /* BrazeFactualEngineDemoTests.m */,
+				D8164A72227230990048C104 /* StubEngineDelegate.h */,
+				D8164A73227230A60048C104 /* StubEngineDelegate.m */,
+				D8164A6F227230770048C104 /* StubConfiguration.h */,
+				D8164A70227230890048C104 /* StubConfiguration.m */,
+				D84E9DF722713D8300049C34 /* Info.plist */,
+			);
+			path = BrazeFactualEngineDemoTests;
 			sourceTree = "<group>";
 		};
 		F655DD4D20508ACB00BCC6D8 = {
 			isa = PBXGroup;
 			children = (
 				F655DD5820508ACB00BCC6D8 /* BrazeFactualEngineDemo */,
+				D84E9DF422713D8300049C34 /* BrazeFactualEngineDemoTests */,
 				F655DD5720508ACB00BCC6D8 /* Products */,
 				02A67BFE0C138FBF3BCDC45C /* Pods */,
 				550A9EBB22D9353F690ACA7E /* Frameworks */,
@@ -78,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				F655DD5620508ACB00BCC6D8 /* BrazeFactualEngineDemo.app */,
+				D84E9DF322713D8300049C34 /* BrazeFactualEngineDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,17 +139,20 @@
 		F655DD5820508ACB00BCC6D8 /* BrazeFactualEngineDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D84E9DE92270E9AD00049C34 /* BrazeFactualEngineDemo.entitlements */,
 				F655DD5920508ACB00BCC6D8 /* AppDelegate.h */,
 				F655DD5A20508ACB00BCC6D8 /* AppDelegate.m */,
+				D8DCF1602273ADCB0061D25C /* EngineDelegate.h */,
+				D8DCF1612273ADD50061D25C /* EngineDelegate.m */,
 				F655DD5C20508ACB00BCC6D8 /* ViewController.h */,
 				F655DD5D20508ACB00BCC6D8 /* ViewController.m */,
+				F6F37C6A2051C39E00E8D11A /* Configuration.h */,
+				F6F37C6B2051C40C00E8D11A /* Configuration.m */,
+				F655DD6820508ACB00BCC6D8 /* main.m */,
 				F655DD5F20508ACB00BCC6D8 /* Main.storyboard */,
 				F655DD6220508ACB00BCC6D8 /* Assets.xcassets */,
 				F655DD6420508ACB00BCC6D8 /* LaunchScreen.storyboard */,
 				F655DD6720508ACB00BCC6D8 /* Info.plist */,
-				F655DD6820508ACB00BCC6D8 /* main.m */,
-				F6F37C6A2051C39E00E8D11A /* Configuration.h */,
-				F6F37C6B2051C40C00E8D11A /* Configuration.m */,
 			);
 			path = BrazeFactualEngineDemo;
 			sourceTree = "<group>";
@@ -103,6 +160,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D84E9DF222713D8300049C34 /* BrazeFactualEngineDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D84E9DFA22713D8300049C34 /* Build configuration list for PBXNativeTarget "BrazeFactualEngineDemoTests" */;
+			buildPhases = (
+				99449B21780B73E3665803D7 /* [CP] Check Pods Manifest.lock */,
+				D84E9DEF22713D8300049C34 /* Sources */,
+				D84E9DF022713D8300049C34 /* Frameworks */,
+				D84E9DF122713D8300049C34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D84E9DF922713D8300049C34 /* PBXTargetDependency */,
+			);
+			name = BrazeFactualEngineDemoTests;
+			productName = BrazeFactualEngineDemoTests;
+			productReference = D84E9DF322713D8300049C34 /* BrazeFactualEngineDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F655DD5520508ACB00BCC6D8 /* BrazeFactualEngineDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F655DD6C20508ACB00BCC6D8 /* Build configuration list for PBXNativeTarget "BrazeFactualEngineDemo" */;
@@ -131,11 +207,19 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Factual Inc.";
 				TargetAttributes = {
+					D84E9DF222713D8300049C34 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F655DD5520508ACB00BCC6D8;
+					};
 					F655DD5520508ACB00BCC6D8 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -156,11 +240,19 @@
 			projectRoot = "";
 			targets = (
 				F655DD5520508ACB00BCC6D8 /* BrazeFactualEngineDemo */,
+				D84E9DF222713D8300049C34 /* BrazeFactualEngineDemoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D84E9DF122713D8300049C34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F655DD5420508ACB00BCC6D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,13 +284,35 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		99449B21780B73E3665803D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BrazeFactualEngineDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F2A9E20A3B66A51FCD272AA7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BrazeFactualEngineDemo/Pods-BrazeFactualEngineDemo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BrazeFactualEngineDemo/Pods-BrazeFactualEngineDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Appboy-iOS-SDK/Appboy_iOS_SDK.framework",
 				"${BUILT_PRODUCTS_DIR}/BButton/BButton.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
@@ -213,12 +327,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BrazeFactualEngineDemo/Pods-BrazeFactualEngineDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BrazeFactualEngineDemo/Pods-BrazeFactualEngineDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D84E9DEF22713D8300049C34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8164A71227230890048C104 /* StubConfiguration.m in Sources */,
+				D84E9DF622713D8300049C34 /* BrazeFactualEngineDemoTests.m in Sources */,
+				D8164A74227230A60048C104 /* StubEngineDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F655DD5220508ACB00BCC6D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,10 +351,19 @@
 				F655DD6920508ACB00BCC6D8 /* main.m in Sources */,
 				F6F37C6C2051C40C00E8D11A /* Configuration.m in Sources */,
 				F655DD5B20508ACB00BCC6D8 /* AppDelegate.m in Sources */,
+				D8DCF1622273ADD50061D25C /* EngineDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D84E9DF922713D8300049C34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F655DD5520508ACB00BCC6D8 /* BrazeFactualEngineDemo */;
+			targetProxy = D84E9DF822713D8300049C34 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F655DD5F20508ACB00BCC6D8 /* Main.storyboard */ = {
@@ -252,6 +385,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D84E9DFB22713D8300049C34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B93B29B0701A92047585F98 /* Pods-BrazeFactualEngineDemoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GLPE4VU4FY;
+				INFOPLIST_FILE = BrazeFactualEngineDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = factual.BrazeFactualEngineDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BrazeFactualEngineDemo.app/BrazeFactualEngineDemo";
+			};
+			name = Debug;
+		};
+		D84E9DFC22713D8300049C34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D705A7E3D93482690CB6644 /* Pods-BrazeFactualEngineDemoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GLPE4VU4FY;
+				INFOPLIST_FILE = BrazeFactualEngineDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = factual.BrazeFactualEngineDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BrazeFactualEngineDemo.app/BrazeFactualEngineDemo";
+			};
+			name = Release;
+		};
 		F655DD6A20508ACB00BCC6D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -300,7 +476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -349,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -361,10 +537,12 @@
 			baseConfigurationReference = 38DB5A93357E528625029F49 /* Pods-BrazeFactualEngineDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BrazeFactualEngineDemo/BrazeFactualEngineDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GLPE4VU4FY;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BrazeFactualEngineDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.factual.engine.BrazeFactualEngineDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -377,10 +555,12 @@
 			baseConfigurationReference = 081179F51B793F5BB94FA347 /* Pods-BrazeFactualEngineDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BrazeFactualEngineDemo/BrazeFactualEngineDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GLPE4VU4FY;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BrazeFactualEngineDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.factual.engine.BrazeFactualEngineDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,6 +571,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D84E9DFA22713D8300049C34 /* Build configuration list for PBXNativeTarget "BrazeFactualEngineDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D84E9DFB22713D8300049C34 /* Debug */,
+				D84E9DFC22713D8300049C34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F655DD5120508ACB00BCC6D8 /* Build configuration list for PBXProject "BrazeFactualEngineDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

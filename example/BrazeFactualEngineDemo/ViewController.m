@@ -3,9 +3,10 @@
  * conditions of the license agreement between you
  * and Factual Inc
  *
- * Copyright © 2017 Factual Inc. All rights reserved.
+ * Copyright © 2019 Factual Inc. All rights reserved.
  */
 
+#import "EngineDelegate.h"
 #import "ViewController.h"
 
 @interface ViewController ()
@@ -39,6 +40,6 @@
 
 - (void)detectAnyCircumstancesAndTrack:(UIButton *)sender {
     NSLog(@"Triggered!");
-    [[AppDelegate engine] runCircumstances];
+    [[EngineDelegate engine] runCircumstances];
 }
 @end
