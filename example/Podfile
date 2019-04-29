@@ -1,12 +1,12 @@
-source 'git@github.com:nnlamb25/engine-pods.git'
-# source 'git@github.com:Factual/cocoapods.git'
+source 'git@github.com:nnlamb25/pods.git'
+source 'git@github.com:Factual/cocoapods.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '8.0'
 
 target 'BrazeFactualEngineDemo' do
   use_frameworks!
-  pod "BrazeEngine"
+  pod "BrazeEngine2"
   pod "BButton"
 
   target 'BrazeFactualEngineDemoTests' do
