@@ -30,23 +30,23 @@ FactualEngine *_engine = nil;
     NSLog(@"Engine stopped.");
 }
 
-- (void)engineDidFailWithError:(FactualError *)error{
+- (void)engineDidFailWithError:(FactualError *)error {
     NSLog(@"Engine error: %@", [error message]);
 }
 
-- (void)engineDidReportInfo:(NSString *)infoMessage{
+- (void)engineDidReportInfo:(NSString *)infoMessage {
     NSLog(@"Engine debug info: %@", infoMessage);
 }
 
-- (void)engineDidSyncWithGarage{
+- (void)engineDidSyncWithGarage {
     NSLog(@"Engine updated configuration.");
 }
 
-- (void)engineDidLoadConfig:(FactualConfigMetadata *)data{
+- (void)engineDidLoadConfig:(FactualConfigMetadata *)data {
     NSLog(@"Engine config loaded: %@", [data version]);
 }
 
-- (void)engineDidReportDiagnosticMessage:(NSString *)diagnosticMessage{
+- (void)engineDidReportDiagnosticMessage:(NSString *)diagnosticMessage {
     NSLog(@"Engine diagnostic message: %@", diagnosticMessage);
 }
 
