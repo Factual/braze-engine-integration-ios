@@ -72,10 +72,10 @@ NSString *EVENT_DATE_KEY = @"last";
     
     // Wait for Braze to track event
     XCTestExpectation *brazeTrackExpectation = [[XCTestExpectation alloc] initWithDescription:@"Braze event tracking"];
-    double secondsDelay = 30.0;
+    double secondsDelay = 60.0;
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(secondsDelay * NSEC_PER_SEC));
     dispatch_after(delay, dispatch_get_main_queue(), ^(void) { [brazeTrackExpectation fulfill]; });
-    (void)[XCTWaiter waitForExpectations:[[NSArray alloc] initWithObjects:brazeTrackExpectation, nil] timeout:45];
+    (void)[XCTWaiter waitForExpectations:[[NSArray alloc] initWithObjects:brazeTrackExpectation, nil] timeout:100];
     
     // Ensure event was sent to Braze
     NSURLRequest *brazeRequest = [self getBrazeApiRequest];
