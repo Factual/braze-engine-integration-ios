@@ -153,7 +153,6 @@ NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
         
         // Send data to Braze
         [[Appboy sharedInstance] logCustomEvent:SPAN_ATTACHED_PLACE_KEY withProperties:properties];
-        NSLog(@"SPAN ATTACHED PLACE: %@", [properties description]);
     }
 }
 

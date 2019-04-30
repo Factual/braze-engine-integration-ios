@@ -119,8 +119,6 @@ NSString *PLACE_CHAIN_KEY = @"chain_name";
         
         // Send to Braze
         [[Appboy sharedInstance] logCustomEvent:eventName withProperties:properties];
-        
-        NSLog(@"CIRCUMSTANCE PLACE %@: %@", eventName, [properties description]);
     }
 }
 

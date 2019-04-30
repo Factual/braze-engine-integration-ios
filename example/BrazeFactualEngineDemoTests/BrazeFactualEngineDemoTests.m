@@ -29,6 +29,7 @@
 @implementation BrazeFactualEngineDemoTests
 
 StubEngineDelegate *engineDelegate;
+BrazeEngineUserJourneyHandler *userJourneyHandler;
 
 NSString *USERS_KEY = @"users";
 NSString *CUSTOM_EVENTS_KEY = @"custom_events";
@@ -39,12 +40,13 @@ NSString *EVENT_DATE_KEY = @"last";
     // Set up engine if it isn't already
     if (![FactualEngine isEngineStarted]) {
         engineDelegate = [[StubEngineDelegate alloc] init];
+        userJourneyHandler = [[BrazeEngineUserJourneyHandler alloc] initWithMaxAttachedPlaceEventsPerEvent:1];
         XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"Engine started"];
         [engineDelegate setEngineStartedExpectation:expectation];
         
         [FactualEngine startWithApiKey:[StubConfiguration engineApiKey]
                               delegate:engineDelegate
-                   userJourneyDelegate:[[BrazeEngineUserJourneyHandler alloc] initWithMaxAttachedPlaceEventsPerEvent:1]];
+                   userJourneyDelegate:userJourneyHandler];
         
         [Appboy startWithApiKey:[StubConfiguration brazeApiKey]
                   inApplication:[UIApplication sharedApplication]
@@ -54,28 +56,62 @@ NSString *EVENT_DATE_KEY = @"last";
         [[Appboy sharedInstance] changeUser:[StubConfiguration testUser]];
         [[[Appboy sharedInstance] user] setEmail:[StubConfiguration testEmail]];
         
-        (void)[XCTWaiter waitForExpectations:[[NSArray alloc] initWithObjects:expectation, nil] timeout:10];
+        (void)[XCTWaiter waitForExpectations:@[expectation] timeout:10];
     }
 }
 
+// Tests Braze Engine Circumstances by triggering a circumstance and checking that it was sent to Braze
 - (void)testBrazeEngineCircumstances {
     FactualEngine *engine = engineDelegate.engine;
     XCTAssertNotNil(engine, @"engine not set");
     
-    // Get current date and time to later check that Braze received event after.
+    // Get current date and time to later check that Braze received event after this moment.
     NSDate *aboutToRun = [NSDate date];
+    
+    // Delay between aboutToRun time and event start time
+    [self delayFor:10.0];
     
     // Trigger a circumstance from a mock location
     CLLocation *mockLocation = [[CLLocation alloc] initWithLatitude:[StubConfiguration testLatitude]
                                                           longitude:[StubConfiguration testLongitude]];
     [engine runCircumstancesWithMockLocation:mockLocation];
     
+    // Events we are looking for
+    NSMutableSet<NSString *> *events = [[NSMutableSet alloc] initWithObjects:
+                                        [@"engine_circumstance_"
+                                         stringByAppendingString:[StubConfiguration circumstanceName]],
+                                        [@"engine_circumstance_at_place_"
+                                         stringByAppendingString:[StubConfiguration circumstanceName]],
+                                        nil];
+    
+    // Ensure our custom events were sent
+    [self verifyEventWithPreRunDate:aboutToRun events:events];
+
+}
+
+// Tests Braze Engine Spans by creating and pushing a span and checking that it was sent to Braze
+- (void)testBrazeEngineSpans {
+    // Get current date and time to later check that Braze received event after this moment.
+    NSDate *aboutToRun = [NSDate date];
+    
+    // Delay between aboutToRun time and event start time
+    [self delayFor:10.0];
+    
+    // Trigger User Journey Span
+    [userJourneyHandler userJourneySpanDidOccur:[self createSpan]];
+    
+    // Events we are looking for
+    NSMutableSet<NSString *> *events = [[NSMutableSet alloc] initWithObjects:
+                                        @"engine_span_occurred",
+                                        @"engine_span_attached_place", nil];
+    
+    // Ensure our custom events were sent
+    [self verifyEventWithPreRunDate:aboutToRun events:events];
+}
+
+- (void)verifyEventWithPreRunDate:(NSDate *)preRun events:(NSMutableSet *)events {
     // Wait for Braze to track event
-    XCTestExpectation *brazeTrackExpectation = [[XCTestExpectation alloc] initWithDescription:@"Braze event tracking"];
-    double secondsDelay = 60.0;
-    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(secondsDelay * NSEC_PER_SEC));
-    dispatch_after(delay, dispatch_get_main_queue(), ^(void) { [brazeTrackExpectation fulfill]; });
-    (void)[XCTWaiter waitForExpectations:[[NSArray alloc] initWithObjects:brazeTrackExpectation, nil] timeout:100];
+    [self delayFor:60.0];
     
     // Ensure event was sent to Braze
     NSURLRequest *brazeRequest = [self getBrazeApiRequest];
@@ -96,14 +132,6 @@ NSString *EVENT_DATE_KEY = @"last";
                                                              valueForKey:CUSTOM_EVENTS_KEY];
                     XCTAssertNotNil(customEvents, @"Custom events not returned");
                     
-                    // Ensure our custom events were sent
-                    NSMutableSet<NSString *> *events = [[NSMutableSet alloc] initWithObjects:
-                                                        [@"engine_circumstance_"
-                                                         stringByAppendingString:[StubConfiguration circumstanceName]],
-                                                        [@"engine_circumstance_at_place_"
-                                                         stringByAppendingString:[StubConfiguration circumstanceName]],
-                                                        nil];
-                    
                     // There are multiple events, find the circumstance related events
                     for (NSDictionary *event in customEvents) {
                         // Get event name
@@ -118,7 +146,7 @@ NSString *EVENT_DATE_KEY = @"last";
                             NSDate *date = [dateFormat dateFromString:dateString];
                             XCTAssertNotNil(date, @"date value is nil");
                             // Ensure this is the event we just sent
-                            XCTAssertTrue([aboutToRun compare:date] == NSOrderedAscending,
+                            XCTAssertTrue([preRun compare:date] == NSOrderedAscending,
                                           @"Braze did not receive event: %@", eventName);
                             [events removeObject:eventName];
                         }
@@ -130,10 +158,16 @@ NSString *EVENT_DATE_KEY = @"last";
                     [brazeRequestExpectation fulfill];
                 }] resume];
     
-    (void)[XCTWaiter waitForExpectations:[[NSArray alloc] initWithObjects:brazeRequestExpectation, nil] timeout:30];
+    (void)[XCTWaiter waitForExpectations:@[brazeRequestExpectation] timeout:30];
 }
 
-
+// Timed delay
+- (void)delayFor:(double)seconds {
+    XCTestExpectation *brazeTrackExpectation = [[XCTestExpectation alloc] initWithDescription:@"Delay for test"];
+    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(seconds * NSEC_PER_SEC));
+    dispatch_after(delay, dispatch_get_main_queue(), ^(void) { [brazeTrackExpectation fulfill]; });
+    (void)[XCTWaiter waitForExpectations:@[brazeTrackExpectation] timeout:seconds + 30];
+}
 
 // Create a rest API request to braze to ensure our events were sent there
 - (NSURLRequest *)getBrazeApiRequest {
@@ -152,6 +186,40 @@ NSString *EVENT_DATE_KEY = @"last";
     [brazeRequest setHTTPMethod:@"POST"];
     
     return brazeRequest;
+}
+
+- (UserJourneySpan *)createSpan {
+    CLLocation *visitLocation = [[CLLocation alloc] initWithLatitude:33.8003 longitude:-117.8827];
+    
+    FactualPlace *factualPlace = [[FactualPlace alloc] initWithName:@"Angel Stadium of Anaheim"
+                                                          factualId:@"123"
+                                                            chainId:nil
+                                                        categoryIds:@[@372, @406]
+                                                           distance:100
+                                                           latitude:33.79992299247533
+                                                          longitude:-117.8830901440233
+                                                       thresholdMet:PlaceConfidenceThresholdHigh
+                                                           locality:@"Anaheim"
+                                                             region:@"CA"
+                                                            country:@"us"
+                                                           postcode:@"92806"];
+    
+    FactualPlaceVisit *placeVisit = [[FactualPlaceVisit alloc] initWithIngressLocation:visitLocation
+                                                                        attachedPlaces:@[factualPlace]
+                                                                           geographies:nil
+                                                                                isHome:false
+                                                                                isWork:false];
+    
+    return [[UserJourneySpan alloc] initWithSpanId:@"this-is-a-test"
+                                    startTimestamp:[NSDate dateWithTimeIntervalSinceNow:-1000]
+                         startTimestampUnavailable:false
+                                      endTimestamp:[NSDate date]
+                           endTimestampUnavailable:false
+                                         didTravel:false
+                                      currentPlace:placeVisit
+                                     previousPlace:nil
+                                  mainActivityType:NO_ACTIVITY
+                                        activities:[[NSArray<FactualActivity *> alloc] init]];
 }
 
 @end
