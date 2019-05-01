@@ -84,6 +84,9 @@ NSString *EVENT_DATE_KEY = @"last";
                                          stringByAppendingString:[StubConfiguration circumstanceName]],
                                         nil];
     
+    [self delayFor:15];
+    [[Appboy sharedInstance] flushDataAndProcessRequestQueue];
+    
     // Ensure our custom events were sent
     [self verifyEventWithPreRunDate:aboutToRun events:events];
 
@@ -104,6 +107,9 @@ NSString *EVENT_DATE_KEY = @"last";
     NSMutableSet<NSString *> *events = [[NSMutableSet alloc] initWithObjects:
                                         @"engine_span_occurred",
                                         @"engine_span_attached_place", nil];
+    
+    [self delayFor:15];
+    [[Appboy sharedInstance] flushDataAndProcessRequestQueue];
     
     // Ensure our custom events were sent
     [self verifyEventWithPreRunDate:aboutToRun events:events];
