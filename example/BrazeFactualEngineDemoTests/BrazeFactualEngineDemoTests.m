@@ -41,8 +41,8 @@ NSString *EVENT_DATE_KEY = @"last";
     if (![FactualEngine isEngineStarted]) {
         engineDelegate = [[StubEngineDelegate alloc] init];
         userJourneyHandler = [[BrazeEngineUserJourneyHandler alloc] initWithMaxAttachedPlaceEventsPerEvent:1];
-        XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"Engine started"];
-        [engineDelegate setEngineStartedExpectation:expectation];
+        XCTestExpectation *engineStartedExpectation = [[XCTestExpectation alloc] initWithDescription:@"Engine started"];
+        [engineDelegate setEngineStartedExpectation:engineStartedExpectation];
         
         [FactualEngine startWithApiKey:[StubConfiguration engineApiKey]
                               delegate:engineDelegate
@@ -56,7 +56,7 @@ NSString *EVENT_DATE_KEY = @"last";
         [[Appboy sharedInstance] changeUser:[StubConfiguration testUser]];
         [[[Appboy sharedInstance] user] setEmail:[StubConfiguration testEmail]];
         
-        (void)[XCTWaiter waitForExpectations:@[expectation] timeout:10];
+        (void)[XCTWaiter waitForExpectations:@[engineStartedExpectation] timeout:10];
     }
 }
 
@@ -84,9 +84,6 @@ NSString *EVENT_DATE_KEY = @"last";
                                          stringByAppendingString:[StubConfiguration circumstanceName]],
                                         nil];
     
-    [self delayFor:15];
-    [[Appboy sharedInstance] flushDataAndProcessRequestQueue];
-    
     // Ensure our custom events were sent
     [self verifyEventWithPreRunDate:aboutToRun events:events];
 
@@ -107,9 +104,6 @@ NSString *EVENT_DATE_KEY = @"last";
     NSMutableSet<NSString *> *events = [[NSMutableSet alloc] initWithObjects:
                                         @"engine_span_occurred",
                                         @"engine_span_attached_place", nil];
-    
-    [self delayFor:15];
-    [[Appboy sharedInstance] flushDataAndProcessRequestQueue];
     
     // Ensure our custom events were sent
     [self verifyEventWithPreRunDate:aboutToRun events:events];
@@ -194,6 +188,7 @@ NSString *EVENT_DATE_KEY = @"last";
     return brazeRequest;
 }
 
+// Creates a span to be sent to Braze
 - (UserJourneySpan *)createSpan {
     CLLocation *visitLocation = [[CLLocation alloc] initWithLatitude:33.8003 longitude:-117.8827];
     
