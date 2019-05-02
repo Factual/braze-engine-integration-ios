@@ -16,7 +16,7 @@ pod install
 
 **(2)** Add your Factual Location Engine API Key to Configuration.m at `engineApiKey` in place of where it says "Your Engine API Key here".
 
-**(3)** Locate your Braze API Key for your app from the [Braze Dashboard](https://dashboard.braze.com) in **Developer Console** under the **APP SETTINGS** tab.  Go to **Identification** and use the API Key listed for your app.
+**(3)** Locate your Braze SDK API Key for your app from the [Braze Dashboard](https://dashboard.braze.com) in **Developer Console** under the **APP SETTINGS** tab.  Go to **Identification** and use the API Key listed for your app.
 
 **(4)** Add your Braze API Key to Configuration.m at `brazeApiKey` in place of where it says "Your Braze API Key here"
 
