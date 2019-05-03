@@ -31,6 +31,8 @@
 StubEngineDelegate *engineDelegate;
 BrazeEngineUserJourneyHandler *userJourneyHandler;
 
+NSString *API_KEY = @"api_key";
+NSString *EMAIL_KEY = @"email_address";
 NSString *USERS_KEY = @"users";
 NSString *CUSTOM_EVENTS_KEY = @"custom_events";
 NSString *NAME_KEY = @"name";
@@ -174,16 +176,16 @@ NSString *EVENT_DATE_KEY = @"last";
     NSString *email = [StubConfiguration testEmail];
     NSString *apiKey = [StubConfiguration brazeRestApiKey];
     NSString *endpoint = [StubConfiguration brazeRestEndpoint];
-    NSString *requestUrlString = [[NSString alloc]
-                                  initWithFormat:@"https://%@/users/export/ids?api_key=%@&email_address=%@",
-                                  endpoint,
-                                  apiKey,
-                                  email];
+    NSString *requestUrlString = [[NSString alloc] initWithFormat:@"https://%@/users/export/ids", endpoint];
     NSURL *requestUrl = [[NSURL alloc] initWithString:requestUrlString];
     XCTAssertNotNil(requestUrl, @"Could not creat URL from string: %@", requestUrlString);
     
     NSMutableURLRequest *brazeRequest = [[NSMutableURLRequest alloc] initWithURL:requestUrl];
     [brazeRequest setHTTPMethod:@"POST"];
+    NSDictionary *body = [[NSDictionary alloc] initWithObjectsAndKeys:apiKey, API_KEY, email, EMAIL_KEY, nil];
+    [brazeRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:body
+                                                              options:NSJSONWritingPrettyPrinted
+                                                                error:nil]];
     
     return brazeRequest;
 }
