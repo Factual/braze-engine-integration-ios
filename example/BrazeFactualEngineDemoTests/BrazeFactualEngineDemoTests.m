@@ -33,6 +33,7 @@ BrazeEngineUserJourneyHandler *userJourneyHandler;
 
 NSString *API_KEY = @"api_key";
 NSString *EMAIL_KEY = @"email_address";
+NSString *ID_KEY = @"external_id";
 NSString *USERS_KEY = @"users";
 NSString *CUSTOM_EVENTS_KEY = @"custom_events";
 NSString *NAME_KEY = @"name";
@@ -129,8 +130,20 @@ NSString *EVENT_DATE_KEY = @"last";
                     NSDictionary *reply = [NSJSONSerialization JSONObjectWithData:data
                                                                           options:NSJSONReadingMutableContainers
                                                                             error:nil];
-                    // Get custom events from JSON object
-                    NSArray<NSDictionary *> *customEvents = [(NSDictionary *)[(NSArray *)[reply valueForKey:USERS_KEY] firstObject]
+                    // Find our test user
+                    NSArray<NSDictionary *> *users = (NSArray *)[reply valueForKey:USERS_KEY];
+                    XCTAssertNotNil(users, @"Incorrect response recieved from Braze: %@", reply);
+                    NSPredicate *predicate = [NSPredicate predicateWithBlock:
+                                              ^BOOL(id  _Nullable evaluatedObject,
+                                                    NSDictionary<NSString *,id> * _Nullable bindings) {
+                        NSString *name = (NSString *)[(NSDictionary *)evaluatedObject objectForKey:ID_KEY];
+                        return [name isEqualToString:[StubConfiguration testUser]];
+                    }];
+                    NSArray<NSDictionary *> *testUser = [users filteredArrayUsingPredicate:predicate];
+                    XCTAssertNotNil(testUser, @"Response does not include our test user: %@", reply);
+                    
+                    // Get custom events from user
+                    NSArray<NSDictionary *> *customEvents = [(NSDictionary *)[testUser firstObject]
                                                              valueForKey:CUSTOM_EVENTS_KEY];
                     XCTAssertNotNil(customEvents, @"Custom events not returned");
                     
@@ -178,14 +191,20 @@ NSString *EVENT_DATE_KEY = @"last";
     NSString *endpoint = [StubConfiguration brazeRestEndpoint];
     NSString *requestUrlString = [[NSString alloc] initWithFormat:@"https://%@/users/export/ids", endpoint];
     NSURL *requestUrl = [[NSURL alloc] initWithString:requestUrlString];
-    XCTAssertNotNil(requestUrl, @"Could not creat URL from string: %@", requestUrlString);
     
     NSMutableURLRequest *brazeRequest = [[NSMutableURLRequest alloc] initWithURL:requestUrl];
-    [brazeRequest setHTTPMethod:@"POST"];
     NSDictionary *body = [[NSDictionary alloc] initWithObjectsAndKeys:apiKey, API_KEY, email, EMAIL_KEY, nil];
-    [brazeRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:body
-                                                              options:NSJSONWritingPrettyPrinted
-                                                                error:nil]];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:body options:NSJSONWritingSortedKeys error:nil];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSData *requestData = [NSData dataWithBytes:[jsonString UTF8String]
+                                         length:[jsonString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]];
+    [brazeRequest setHTTPMethod:@"POST"];
+    [brazeRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [brazeRequest setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    [brazeRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[requestData length]]
+        forHTTPHeaderField:@"Content-Length"];
+
+    [brazeRequest setHTTPBody:requestData];
     
     return brazeRequest;
 }
