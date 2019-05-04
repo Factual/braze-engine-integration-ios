@@ -22,9 +22,9 @@ pod install
 
 **(5)** Determine your [Braze Endpoint](https://www.braze.com/docs/user_guide/administrative/access_braze/sdk_endpoints/) and add it to [Configuration.m](BrazeFactualEngineDemo/Configuration.m) in place of where it says `"Your Braze SDK Endpoint here"`.
 
-**(7)** Enter a new User ID in [Configuration.m](BrazeFactualEngineDemo/Configuration.m) where it says `"Your Braze User ID here"` and a test user email in [Configuration.m](BrazeFactualEngineDemo/Configuration.m) where it says `"Your Braze User Email here"`.
+**(6)** Enter a new User ID in [Configuration.m](BrazeFactualEngineDemo/Configuration.m) where it says `"Your Braze User ID here"` and a test user email in [Configuration.m](BrazeFactualEngineDemo/Configuration.m) where it says `"Your Braze User Email here"`.
 
-**(8) -(optional)-** Enable push notifications for this app.  To do so, you must [enable push notifications](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) and configure your [Apple Developer Account](https://developer.apple.com/account/#/overview/) to allow push notifications.
+**(7) -(optional)-** Enable push notifications for this app.  To do so, you must [enable push notifications](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) and configure your [Apple Developer Account](https://developer.apple.com/account/#/overview/) to allow push notifications.
 
 ### Testing
 
