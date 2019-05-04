@@ -94,4 +94,4 @@ Please refer to the [Factual Developer Docs](http://developer.factual.com) for m
 
 # Example App
 
-A example app is included in this repository to demonstrate the usage of this library, see [./example](./example) for documentation and usage instructions.
+An example app is included in this repository to demonstrate the usage of this library, see [./example](./example) for documentation and usage instructions.
