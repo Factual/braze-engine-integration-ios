@@ -71,8 +71,8 @@ NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
     
     // Span information
     NSString *spanId = userJourneySpan.spanId;
-    NSNumber *startTimestampUnavailable = @(userJourneySpan.startTimestampUnavailable);
-    NSNumber *endTimestampUnavailable = @(userJourneySpan.endTimestampUnavailable);
+    BOOL startTimestampUnavailable = userJourneySpan.startTimestampUnavailable;
+    BOOL endTimestampUnavailable = userJourneySpan.endTimestampUnavailable;
     UInt64 startTimestamp = userJourneySpan.startTimestamp.timeIntervalSince1970 * 1000;
     UInt64 endTimestamp = userJourneySpan.endTimestamp.timeIntervalSince1970 * 1000;
     
@@ -94,14 +94,14 @@ NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
     NSString *region = geographies.region;
     
     // Get duration of span
-    NSNumber *duration = @(!startTimestampUnavailable && !endTimestampUnavailable ? endTimestamp - startTimestamp : 0);
+    NSNumber *duration = !startTimestampUnavailable && !endTimestampUnavailable ? @(endTimestamp - startTimestamp) : 0;
     
     // Populate properties data
     NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
     [properties setValue:spanId forKey:SPAN_ID_KEY];
     [properties setValue:SPAN_SOURCE_NAME forKey:SPAN_SOURCE_KEY];
-    [properties setValue:startTimestampUnavailable forKey:START_TIMESTAMP_UNAVAILABLE_KEY];
-    [properties setValue:endTimestampUnavailable forKey:END_TIMESTAMP_UNAVAILABLE_KEY];
+    [properties setValue:@(startTimestampUnavailable) forKey:START_TIMESTAMP_UNAVAILABLE_KEY];
+    [properties setValue:@(endTimestampUnavailable) forKey:END_TIMESTAMP_UNAVAILABLE_KEY];
     [properties setValue:@(startTimestamp) forKey:START_TIMESTAMP_KEY];
     [properties setValue:@(endTimestamp) forKey:END_TIMESTAM_KEY];
     [properties setValue:duration forKey:DURATION_KEY];
