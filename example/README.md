@@ -32,4 +32,4 @@ If you'd like to test the integration, an example test is given.  To run the tes
 
 ### Explore
 
-From here, you can setup Braze to trigger actions based on Engine custom events.  [See here](https://github.com/Factual/engine-braze-integration#example) for an example of sending a push notification when a user visits a coffee shop.
+From here, you can setup Braze to trigger actions based on Engine custom events.  [See here](https://github.com/Factual/engine-braze-integration#example) for an example of sending a push notification when a user is near a coffee shop.
