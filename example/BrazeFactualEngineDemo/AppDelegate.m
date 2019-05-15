@@ -6,11 +6,11 @@
  * Copyright © 2019 Factual Inc. All rights reserved.
  */
 
-
 #import "AppDelegate.h"
 #import "BrazeEngine.h"
 #import "Configuration.h"
 #import "EngineDelegate.h"
+#import "FactualEngine.h"
 
 @interface AppboyEndpointDelegate : NSObject <ABKAppboyEndpointDelegate>
 @end

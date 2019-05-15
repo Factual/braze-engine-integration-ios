@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Appboy_iOS_SDK/AppboyKit.h"
-#import "FactualEngine.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 

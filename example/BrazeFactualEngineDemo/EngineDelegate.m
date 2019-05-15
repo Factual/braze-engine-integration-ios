@@ -6,7 +6,6 @@
 //  Copyright © 2019 Factual Inc. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import "BrazeEngine.h"
 #import "EngineDelegate.h"
 

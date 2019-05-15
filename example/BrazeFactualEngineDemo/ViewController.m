@@ -6,6 +6,7 @@
  * Copyright © 2019 Factual Inc. All rights reserved.
  */
 
+#import "BButton.h"
 #import "EngineDelegate.h"
 #import "ViewController.h"
 

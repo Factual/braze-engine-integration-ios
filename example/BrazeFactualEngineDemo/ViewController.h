@@ -7,8 +7,6 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "BButton.h"
-#import "AppDelegate.h"
 
 @interface ViewController : UIViewController
 
