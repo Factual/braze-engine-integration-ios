@@ -12,23 +12,23 @@
 @implementation Configuration
 
 + (NSString *)engineApiKey {
-    return @"Your Engine API Key here";
+  return @"Your Engine API Key here";
 }
 
 + (NSString *)brazeApiKey {
-    return @"Your Braze SDK API Key here";
+  return @"Your Braze SDK API Key here";
 }
 
 + (NSString *)brazeEndpoint {
-    return @"Your Braze SDK Endpoint here";
+  return @"Your Braze SDK Endpoint here";
 }
 
 + (NSString *)brazeUser {
-    return @"Your Braze User ID here";
+  return @"Your Braze User ID here";
 }
 
 + (NSString *)brazeUserEmail {
-    return @"Your Braze User Email here";
+  return @"Your Braze User Email here";
 }
 
 @end

@@ -14,7 +14,7 @@
 
 @implementation BrazeEngineUserJourneyHandler
 {
-    int _maxAttachedPlacesPerEvent;
+  int _maxAttachedPlacesPerEvent;
 }
 
 // Keys
@@ -50,110 +50,110 @@ NSString *ATTACHED_PLACE_DISTANCE_KEY = @"distance";
 NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
 
 - (id) initWithMaxAttachedPlaceEventsPerEvent:(int)maxAttachedPlaceEventsPerEvent {
-    if (self = [super init]) {
-        _maxAttachedPlacesPerEvent = maxAttachedPlaceEventsPerEvent;
-    }
-    
-    return self;
+  if (self = [super init]) {
+    _maxAttachedPlacesPerEvent = maxAttachedPlaceEventsPerEvent;
+  }
+  
+  return self;
 }
 
 - (id) init {
-    return [self initWithMaxAttachedPlaceEventsPerEvent:20];
+  return [self initWithMaxAttachedPlaceEventsPerEvent:20];
 }
 
 - (void)userJourneyEventDidOccur:(nonnull UserJourneyEvent *)userJourneyEvent { /* Not supported */ }
 
 - (void)userJourneySpanDidOccur:(nonnull UserJourneySpan *)userJourneySpan {
-    // Only send span data packet when did travel is false and tracking User Journey Spans is enabled
-    if (![BrazeEngine isTrackingSpans] || userJourneySpan.didTravel) {
-        return;
-    }
-    
-    // Span information
-    NSString *spanId = userJourneySpan.spanId;
-    BOOL startTimestampUnavailable = userJourneySpan.startTimestampUnavailable;
-    BOOL endTimestampUnavailable = userJourneySpan.endTimestampUnavailable;
-    UInt64 startTimestamp = userJourneySpan.startTimestamp.timeIntervalSince1970 * 1000;
-    UInt64 endTimestamp = userJourneySpan.endTimestamp.timeIntervalSince1970 * 1000;
-    
-    // Current place information
-    FactualPlaceVisit *currentPlace = userJourneySpan.currentPlace;
-    NSNumber *isHome = [[NSNumber alloc] initWithBool:currentPlace.isHome];
-    NSNumber *isWork = [[NSNumber alloc] initWithBool:currentPlace.isWork];
-    
-    // Ingress information
-    CLLocation *ingressLocation = currentPlace.ingressLocation;
-    NSNumber *ingressLatitude = @(ingressLocation.coordinate.latitude);
-    NSNumber *ingressLongitude = @(ingressLocation.coordinate.longitude);
-    
-    // Geographies information
-    Geographies *geographies = currentPlace.geographies;
-    NSString *country = geographies.country;
-    NSArray<NSString*> *localities = geographies.localities;
-    NSString *postcode = geographies.postcode;
-    NSString *region = geographies.region;
-    
-    // Get duration of span
-    NSNumber *duration = !startTimestampUnavailable && !endTimestampUnavailable ? @(endTimestamp - startTimestamp) : 0;
-    
-    // Populate properties data
-    NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
-    [properties setValue:spanId forKey:SPAN_ID_KEY];
-    [properties setValue:SPAN_SOURCE_NAME forKey:SPAN_SOURCE_KEY];
-    [properties setValue:@(startTimestampUnavailable) forKey:START_TIMESTAMP_UNAVAILABLE_KEY];
-    [properties setValue:@(endTimestampUnavailable) forKey:END_TIMESTAMP_UNAVAILABLE_KEY];
-    [properties setValue:@(startTimestamp) forKey:START_TIMESTAMP_KEY];
-    [properties setValue:@(endTimestamp) forKey:END_TIMESTAM_KEY];
-    [properties setValue:duration forKey:DURATION_KEY];
-    [properties setValue:isHome forKey:IS_HOME_KEY];
-    [properties setValue:isWork forKey:IS_WORK_KEY];
-    [properties setValue:ingressLatitude forKey:INGRESS_LATITUDE_KEY];
-    [properties setValue:ingressLongitude forKey:INGRESS_LONGITUDE_KEY];
-    [properties setValue:country forKey:COUNTRY_KEY];
-    [properties setValue:localities forKey:LOCALITIES_KEY];
-    [properties setValue:postcode forKey:POSTCODE_KEY];
-    [properties setValue:region forKey:REGION_KEY];
-    
-    // Send data to Braze
-    [[Appboy sharedInstance] logCustomEvent:ENGINE_SPAN_KEY withProperties:properties];
-    
-    // Send places data
-    [self sendPlacesData:currentPlace.attachedPlaces withSpanId:spanId];
+  // Only send span data packet when did travel is false and tracking User Journey Spans is enabled
+  if (![BrazeEngine isTrackingSpans] || userJourneySpan.didTravel) {
+    return;
+  }
+  
+  // Span information
+  NSString *spanId = userJourneySpan.spanId;
+  BOOL startTimestampUnavailable = userJourneySpan.startTimestampUnavailable;
+  BOOL endTimestampUnavailable = userJourneySpan.endTimestampUnavailable;
+  UInt64 startTimestamp = userJourneySpan.startTimestamp.timeIntervalSince1970 * 1000;
+  UInt64 endTimestamp = userJourneySpan.endTimestamp.timeIntervalSince1970 * 1000;
+  
+  // Current place information
+  FactualPlaceVisit *currentPlace = userJourneySpan.currentPlace;
+  NSNumber *isHome = [[NSNumber alloc] initWithBool:currentPlace.isHome];
+  NSNumber *isWork = [[NSNumber alloc] initWithBool:currentPlace.isWork];
+  
+  // Ingress information
+  CLLocation *ingressLocation = currentPlace.ingressLocation;
+  NSNumber *ingressLatitude = @(ingressLocation.coordinate.latitude);
+  NSNumber *ingressLongitude = @(ingressLocation.coordinate.longitude);
+  
+  // Geographies information
+  Geographies *geographies = currentPlace.geographies;
+  NSString *country = geographies.country;
+  NSArray<NSString*> *localities = geographies.localities;
+  NSString *postcode = geographies.postcode;
+  NSString *region = geographies.region;
+  
+  // Get duration of span
+  NSNumber *duration = !startTimestampUnavailable && !endTimestampUnavailable ? @(endTimestamp - startTimestamp) : 0;
+  
+  // Populate properties data
+  NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
+  [properties setValue:spanId forKey:SPAN_ID_KEY];
+  [properties setValue:SPAN_SOURCE_NAME forKey:SPAN_SOURCE_KEY];
+  [properties setValue:@(startTimestampUnavailable) forKey:START_TIMESTAMP_UNAVAILABLE_KEY];
+  [properties setValue:@(endTimestampUnavailable) forKey:END_TIMESTAMP_UNAVAILABLE_KEY];
+  [properties setValue:@(startTimestamp) forKey:START_TIMESTAMP_KEY];
+  [properties setValue:@(endTimestamp) forKey:END_TIMESTAM_KEY];
+  [properties setValue:duration forKey:DURATION_KEY];
+  [properties setValue:isHome forKey:IS_HOME_KEY];
+  [properties setValue:isWork forKey:IS_WORK_KEY];
+  [properties setValue:ingressLatitude forKey:INGRESS_LATITUDE_KEY];
+  [properties setValue:ingressLongitude forKey:INGRESS_LONGITUDE_KEY];
+  [properties setValue:country forKey:COUNTRY_KEY];
+  [properties setValue:localities forKey:LOCALITIES_KEY];
+  [properties setValue:postcode forKey:POSTCODE_KEY];
+  [properties setValue:region forKey:REGION_KEY];
+  
+  // Send data to Braze
+  [[Appboy sharedInstance] logCustomEvent:ENGINE_SPAN_KEY withProperties:properties];
+  
+  // Send places data
+  [self sendPlacesData:currentPlace.attachedPlaces withSpanId:spanId];
 }
 
 - (void)sendPlacesData:(NSArray<FactualPlace *>*)places withSpanId:(NSString *)spanId {
-    // Get max number of places to send
-    NSUInteger maxPlaceEvents = MIN(_maxAttachedPlacesPerEvent, places.count);
+  // Get max number of places to send
+  NSUInteger maxPlaceEvents = MIN(_maxAttachedPlacesPerEvent, places.count);
+  
+  NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
+  [properties setValue:spanId forKey:SPAN_ID_KEY];
+  
+  // Loop through all attached places
+  for (int i = 0; i < maxPlaceEvents; i++) {
+    FactualPlace *place = places[i];
     
-    NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
-    [properties setValue:spanId forKey:SPAN_ID_KEY];
+    // Get categories
+    NSString *categories = [[PlaceCategoryMap getCategoriesFromPlace:place] componentsJoinedByString:@", "];
     
-    // Loop through all attached places
-    for (int i = 0; i < maxPlaceEvents; i++) {
-        FactualPlace *place = places[i];
-        
-        // Get categories
-        NSString *categories = [[PlaceCategoryMap getCategoriesFromPlace:place] componentsJoinedByString:@", "];
-        
-        // Get chain
-        NSString *chain = [PlaceChainMap getChainFromPlace:place];
-        
-        // Populate properties data
-        [properties setValue:ATTACHED_PLACE_NAME_KEY forKey:place.name];
-        [properties setValue:categories forKey:ATTACHED_PLACE_CATEGORIES_KEY];
-        [properties setValue:chain forKey:ATTACHED_PLACE_CHAIN_KEY];
-        [properties setValue:place.factualId forKey:ATTACHED_PLACE_ID_KEY];
-        [properties setValue:@(place.latitude) forKey:ATTACHED_PLACE_LATITUDE_KEY];
-        [properties setValue:@(place.longitude) forKey:ATTACHED_PLACE_LONGITUDE_KEY];
-        [properties setValue:@(place.distance) forKey:ATTACHED_PLACE_DISTANCE_KEY];
-        [properties setValue:place.locality forKey:ATTACHED_PLACE_LOCALITY_KEY];
-        [properties setValue:place.region forKey:REGION_KEY];
-        [properties setValue:place.country forKey:COUNTRY_KEY];
-        [properties setValue:place.postcode forKey:POSTCODE_KEY];
-        
-        // Send data to Braze
-        [[Appboy sharedInstance] logCustomEvent:SPAN_ATTACHED_PLACE_KEY withProperties:properties];
-    }
+    // Get chain
+    NSString *chain = [PlaceChainMap getChainFromPlace:place];
+    
+    // Populate properties data
+    [properties setValue:ATTACHED_PLACE_NAME_KEY forKey:place.name];
+    [properties setValue:categories forKey:ATTACHED_PLACE_CATEGORIES_KEY];
+    [properties setValue:chain forKey:ATTACHED_PLACE_CHAIN_KEY];
+    [properties setValue:place.factualId forKey:ATTACHED_PLACE_ID_KEY];
+    [properties setValue:@(place.latitude) forKey:ATTACHED_PLACE_LATITUDE_KEY];
+    [properties setValue:@(place.longitude) forKey:ATTACHED_PLACE_LONGITUDE_KEY];
+    [properties setValue:@(place.distance) forKey:ATTACHED_PLACE_DISTANCE_KEY];
+    [properties setValue:place.locality forKey:ATTACHED_PLACE_LOCALITY_KEY];
+    [properties setValue:place.region forKey:REGION_KEY];
+    [properties setValue:place.country forKey:COUNTRY_KEY];
+    [properties setValue:place.postcode forKey:POSTCODE_KEY];
+    
+    // Send data to Braze
+    [[Appboy sharedInstance] logCustomEvent:SPAN_ATTACHED_PLACE_KEY withProperties:properties];
+  }
 }
 
 @end

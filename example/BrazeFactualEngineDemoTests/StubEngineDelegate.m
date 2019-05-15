@@ -16,40 +16,40 @@ FactualEngine *engine;
 XCTestExpectation *engineStartedExpectation;
 
 - (void)engineDidStartWithInstance:(FactualEngine *)engine {
-    NSLog(@"Engine started.");
-    [engine syncWithGarage];
-    [self setEngine:engine];
-    [BrazeEngine trackCircumstancesWithEngine:engine
-          withMaxAtPlaceEventsPerCircumstance:1
-        withMaxNearPlaceEventsPerCircumstance:1];
-    
-    [BrazeEngine trackUserJourneySpans];
-    
-    [self.engineStartedExpectation fulfill];
+  NSLog(@"Engine started.");
+  [engine syncWithGarage];
+  [self setEngine:engine];
+  [BrazeEngine trackCircumstancesWithEngine:engine
+        withMaxAtPlaceEventsPerCircumstance:1
+      withMaxNearPlaceEventsPerCircumstance:1];
+  
+  [BrazeEngine trackUserJourneySpans];
+  
+  [self.engineStartedExpectation fulfill];
 }
 
 - (void)engineDidStop{
-    NSLog(@"Engine stopped.");
+  NSLog(@"Engine stopped.");
 }
 
 - (void)engineDidFailWithError:(FactualError *)error{
-    NSLog(@"Engine error: %@", [error message]);
+  NSLog(@"Engine error: %@", [error message]);
 }
 
 - (void)engineDidReportInfo:(NSString *)infoMessage{
-    NSLog(@"Engine debug info: %@", infoMessage);
+  NSLog(@"Engine debug info: %@", infoMessage);
 }
 
 - (void)engineDidSyncWithGarage{
-    NSLog(@"Engine updated configuration.");
+  NSLog(@"Engine updated configuration.");
 }
 
 - (void)engineDidLoadConfig:(FactualConfigMetadata *)data{
-    NSLog(@"Engine config loaded: %@", [data version]);
+  NSLog(@"Engine config loaded: %@", [data version]);
 }
 
 - (void)engineDidReportDiagnosticMessage:(NSString *)diagnosticMessage{
-    NSLog(@"Engine diagnostic message: %@", diagnosticMessage);
+  NSLog(@"Engine diagnostic message: %@", diagnosticMessage);
 }
 
 @end

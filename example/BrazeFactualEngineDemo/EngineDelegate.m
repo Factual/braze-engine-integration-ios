@@ -14,39 +14,39 @@
 FactualEngine *_engine = nil;
 
 + (FactualEngine *)engine {
-    return _engine;
+  return _engine;
 }
 
 - (void)engineDidStartWithInstance:(FactualEngine *)engine {
-    NSLog(@"Engine started.");
-    [engine syncWithGarage];
-    _engine = engine;
-    [BrazeEngine trackCircumstancesWithEngine:engine];
-    [BrazeEngine trackUserJourneySpans];
+  NSLog(@"Engine started.");
+  [engine syncWithGarage];
+  _engine = engine;
+  [BrazeEngine trackCircumstancesWithEngine:engine];
+  [BrazeEngine trackUserJourneySpans];
 }
 
 - (void)engineDidStop{
-    NSLog(@"Engine stopped.");
+  NSLog(@"Engine stopped.");
 }
 
 - (void)engineDidFailWithError:(FactualError *)error {
-    NSLog(@"Engine error: %@", [error message]);
+  NSLog(@"Engine error: %@", [error message]);
 }
 
 - (void)engineDidReportInfo:(NSString *)infoMessage {
-    NSLog(@"Engine debug info: %@", infoMessage);
+  NSLog(@"Engine debug info: %@", infoMessage);
 }
 
 - (void)engineDidSyncWithGarage {
-    NSLog(@"Engine updated configuration.");
+  NSLog(@"Engine updated configuration.");
 }
 
 - (void)engineDidLoadConfig:(FactualConfigMetadata *)data {
-    NSLog(@"Engine config loaded: %@", [data version]);
+  NSLog(@"Engine config loaded: %@", [data version]);
 }
 
 - (void)engineDidReportDiagnosticMessage:(NSString *)diagnosticMessage {
-    NSLog(@"Engine diagnostic message: %@", diagnosticMessage);
+  NSLog(@"Engine diagnostic message: %@", diagnosticMessage);
 }
 
 @end
