@@ -81,9 +81,9 @@ NSString *EVENT_DATE_KEY = @"last";
   
   // Events we are looking for
   NSMutableSet<NSString *> *events = [[NSMutableSet alloc] initWithObjects:
-                                      [@"engine_circumstance_"
+                                      [@"engine_"
                                        stringByAppendingString:[StubConfiguration circumstanceName]],
-                                      [@"engine_circumstance_at_place_"
+                                      [@"engine_at_"
                                        stringByAppendingString:[StubConfiguration circumstanceName]],
                                       nil];
   
