@@ -34,17 +34,17 @@
  
  1) Circumstance Triggered Events:
     Description: Sent when a Engine circumstance is triggered
-    EventName: "engine_circumstance_" + CIRCUMSTANCE_NAME
+    EventName: "engine_" + CIRCUMSTANCE_NAME
     EventProperties: incidence_id, user_latitude, user_longitude, event_source
  
  2) Circumstance At Place Events:
     Description: Sent for each place the user may have been at which triggered the circumstance event
-    EventName: "engine_circumstance_at_place_" + CIRCUMSTANCE_NAME
+    EventName: "engine_at_" + CIRCUMSTANCE_NAME
     EventProperties: Same as (1) with the addition of place properties: name, factual_id, latitude, longitude, place_categories, chain
  
  3) Circumstance Near Place Events:
     Description: Sent for each place the user may have been near to - but not at - which triggered the circumstance event
-    EventName: "engine_circumstance_near_place_" + CIRCUSMTANCE_NAME
+    EventName: "engine_near_" + CIRCUSMTANCE_NAME
     EventProperties: Same as (2)
  
  For each circumstance that is triggered there will be one event of type (1) and potentially

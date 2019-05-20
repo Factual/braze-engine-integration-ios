@@ -17,17 +17,17 @@
   int _maxNearPlaceEventsPerCircumstance;
 }
 
-NSString *CUSTOM_EVENT_ACTION_ID = @"send-custom-event";
+NSString *CUSTOM_EVENT_ACTION_ID = @"push-to-braze";
 NSString *SOURCE_NAME = @"factual";
 
-NSString *BRAZE_ENGINE_CIRCUMSTANCE_KEY = @"engine_circumstance_";
+NSString *BRAZE_ENGINE_CIRCUMSTANCE_KEY = @"engine_";
 NSString *INCIDENT_ID_KEY = @"incident_id";
 NSString *USER_LATITUDE_KEY = @"user_latitude";
 NSString *USER_LONGITUDE_KEY = @"user_longitude";
 NSString *EVENT_SOURCE_KEY = @"event_source";
 
-NSString *BRAZE_ENGINE_AT_PLACE_EVENT_KEY = @"engine_circumstance_at_place_";
-NSString *BRAZE_ENGINE_NEAR_PLACE_EVENT_KEY = @"engine_circumstance_near_place_";
+NSString *BRAZE_ENGINE_AT_PLACE_EVENT_KEY = @"engine_at_";
+NSString *BRAZE_ENGINE_NEAR_PLACE_EVENT_KEY = @"engine_near_";
 NSString *PLACE_NAME_KEY = @"name";
 NSString *PLACE_ID_KEY = @"factual_id";
 NSString *PLACE_LATITUDE_KEY = @"latitude";
