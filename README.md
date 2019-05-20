@@ -38,12 +38,12 @@ Start tracking Engine's Circumstance events after receiving the Engine started c
 - (void)engineDidStartWithInstance:(FactualEngine *)engine {
   NSLog(@"Engine started.");
 
-  // Max number of "engine_circumstance_at_place" events that should be sent per "engine_circumstance_met"
-  // default is set to 10.
+  // Max number of "engine_at_" + CIRCUMSTANCE_NAME events that should
+  // be sent per "engine_" + CIRCUMSTANCE_NAME event. Default is set to 10.
   int maxAtPlaceEvents = 3;
 
-  // Max number of "engine_circumstance_at_place" events that should be sent per "engine_circumstance_met"
-  // default is set to 10.
+  // Max number of "engine_near_" + CIRCUMSTANCE_NAME events that should
+  // be sent per "engine_" + CIRCUMSTANCE_NAME event. Default is set to 20.
   int maxNearPlaceEvents = 5;
 
   [BrazeEngine trackCircumstancesWithEngine:engine
@@ -67,7 +67,8 @@ Start tracking User Journey Spans by first adding the `BrazeEngineUserJourneyHan
   int maxAttachedPlaces = 10;
   [FactualEngine startWithApiKey:[Configuration engineApiKey]
                         delegate:[self engineDelegate]
-             userJourneyDelegate:[[BrazeEngineUserJourneyHandler alloc] initWithMaxAttachedPlaceEventsPerEvent:maxAttachedPlaces]];
+             userJourneyDelegate:[[BrazeEngineUserJourneyHandler alloc]
+                                   initWithMaxAttachedPlaceEventsPerEvent:maxAttachedPlaces]];
 
   return YES;
 }
