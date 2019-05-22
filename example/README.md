@@ -14,15 +14,15 @@ pod install
 
 ![Dashboard image](./images/apikey.png)
 
-**(2)** Add your Factual Location Engine API Key to [Configuration.m](BrazeFactualEngineDemo/Configuration.m) at `engineApiKey` in place of where it says ``"Your Engine API Key here"``.
+**(2)** Add your Factual Location Engine API Key to [Configuration.m](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemo/Configuration.m#L15).
 
 **(3)** Locate your Braze SDK API Key for your app from the [Braze Dashboard](https://dashboard.braze.com) in **Developer Console** under the **APP SETTINGS** tab.  Go to **Identification** and use the API Key listed for your app.
 
-**(4)** Add your Braze API Key to [Configuration.m](BrazeFactualEngineDemo/Configuration.m) at `brazeApiKey` in place of where it says `"Your Braze API Key here"`.
+**(4)** Add your Braze API Key to [Configuration.m](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemo/Configuration.m#L19)
 
-**(5)** Determine your [Braze Endpoint](https://www.braze.com/docs/user_guide/administrative/access_braze/sdk_endpoints/) and add it to [Configuration.m](BrazeFactualEngineDemo/Configuration.m) in place of where it says `"Your Braze SDK Endpoint here"`.
+**(5)** Determine your [Braze Endpoint](https://www.braze.com/docs/user_guide/administrative/access_braze/sdk_endpoints/) and add it to [Configuration.m](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemo/Configuration.m#L23).
 
-**(6)** Enter a new User ID in [Configuration.m](BrazeFactualEngineDemo/Configuration.m) where it says `"Your Braze User ID here"` and a test user email in [Configuration.m](BrazeFactualEngineDemo/Configuration.m) where it says `"Your Braze User Email here"`.
+**(6)** Enter a new User ID in [Configuration.m at `brazeUser`](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemo/Configuration.m#L27) and a test user email in [Configuration.m at `brazeUserEmail`](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemo/Configuration.m#L31).
 
 **(7) -(optional)-** Enable push notifications for this app.  To do so, you must [enable push notifications](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) and configure your [Apple Developer Account](https://developer.apple.com/account/#/overview/) to allow push notifications.
 
