@@ -83,14 +83,6 @@ Then in the Engine started callback within the FactualEngineDelegate add the lin
 }
 ```
 
-
-```objective-c
-- (void)engineDidStartWithInstance:(FactualEngine *)engine {
-  //track only circumstance events
-  [BrazeEngine trackCircumstancesWithEngine:engine withUserJourneyEnabled:false]
-}
-```
-
 Please refer to the [Factual Developer Docs](http://developer.factual.com) for more information about Engine.
 
 # Example App
