@@ -26,10 +26,10 @@ pod install
 
 **(7) -(optional)-** Enable push notifications for this app.  To do so, you must [enable push notifications](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) and configure your [Apple Developer Account](https://developer.apple.com/account/#/overview/) to allow push notifications.
 
-### Testing
-
-If you'd like to test the integration, an example test is given.  To run the test, fill out your information in [StubConfiguration.m](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemoTests/StubConfiguration.m).  Change the `testLatitude` and `testLongitude` variables to coordinates of a place which would trigger your Engine Circumstance.
-
 ### Explore
 
 From here, you can setup Braze to trigger actions based on Engine custom events.  [See here](https://github.com/Factual/engine-braze-integration#example) for an example of sending a push notification when a user is near a coffee shop.
+
+### Testing
+
+If you'd like to test the integration, an example test is given.  To run the test, fill out your information in [StubConfiguration.m](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemoTests/StubConfiguration.m).  Change the `testLatitude` and `testLongitude` variables to coordinates of a place which would trigger your Engine Circumstance.
