@@ -21,7 +21,6 @@ FactualEngine *_engine = nil;
   NSLog(@"Engine started.");
   [engine syncWithGarage];
   _engine = engine;
-  [BrazeEngine trackCircumstancesWithEngine:engine];
   [BrazeEngine trackUserJourneySpans];
 }
 
@@ -47,6 +46,16 @@ FactualEngine *_engine = nil;
 
 - (void)engineDidReportDiagnosticMessage:(NSString *)diagnosticMessage {
   NSLog(@"Engine diagnostic message: %@", diagnosticMessage);
+}
+
+- (void)circumstancesMet:(nonnull NSArray<CircumstanceResponse *> *)circumstances {
+  for (CircumstanceResponse *response in circumstances) {
+    NSLog(@"Engine circumstance triggered action: %@", [[response circumstance] actionId]);
+    if ([[[response circumstance] actionId] isEqualToString:@"push-to-braze"]) {
+      NSLog(@"Sending circumstance %@ to Braze", [[response circumstance] circumstanceId]);
+      [BrazeEngine pushToBraze:response];
+    }
+  }
 }
 
 @end

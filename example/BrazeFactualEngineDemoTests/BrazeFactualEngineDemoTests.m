@@ -238,6 +238,7 @@ NSString *EVENT_DATE_KEY = @"last";
                                     endTimestamp:[NSDate date]
                          endTimestampUnavailable:false
                                        didTravel:false
+                                   didLoseSignal:false
                                     currentPlace:placeVisit
                                    previousPlace:nil
                                 mainActivityType:NO_ACTIVITY

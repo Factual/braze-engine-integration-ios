@@ -19,10 +19,6 @@ XCTestExpectation *engineStartedExpectation;
   NSLog(@"Engine started.");
   [engine syncWithGarage];
   [self setEngine:engine];
-  [BrazeEngine trackCircumstancesWithEngine:engine
-        withMaxAtPlaceEventsPerCircumstance:1
-      withMaxNearPlaceEventsPerCircumstance:1];
-  
   [BrazeEngine trackUserJourneySpans];
   
   [self.engineStartedExpectation fulfill];
@@ -50,6 +46,16 @@ XCTestExpectation *engineStartedExpectation;
 
 - (void)engineDidReportDiagnosticMessage:(NSString *)diagnosticMessage{
   NSLog(@"Engine diagnostic message: %@", diagnosticMessage);
+}
+
+- (void)circumstancesMet:(nonnull NSArray<CircumstanceResponse *> *)circumstances {
+  for (CircumstanceResponse *response in circumstances) {
+    NSLog(@"Engine circumstance triggered action: %@", [[response circumstance] actionId]);
+    if ([[[response circumstance] actionId] isEqualToString:@"push-to-braze"]) {
+      NSLog(@"Sending circumstance %@ to Braze", [[response circumstance] circumstanceId]);
+      [BrazeEngine pushToBraze:response withMaxAtPlaceEvents:1 withMaxNearPlaceEvents:0];
+    }
+  }
 }
 
 @end
