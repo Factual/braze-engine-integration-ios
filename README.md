@@ -32,12 +32,10 @@ Download the library from [Bintray](https://factual.bintray.com/files/) and add 
 
 ### Tracking Factual Engine Circumstances
 
-Start tracking Engine's Circumstance events after receiving the Engine started callback within the FactualEngineDelegate.
+Call the BrazeEngine method for sending a circumstance response to Braze in the circumstancesMet callback in FactualEngineDelegate.
 
 ```objective-c
-- (void)engineDidStartWithInstance:(FactualEngine *)engine {
-  NSLog(@"Engine started.");
-
+- (void)circumstancesMet:(nonnull NSArray<CircumstanceResponse *> *)circumstances {
   // Max number of "engine_at_" + CIRCUMSTANCE_NAME events that should
   // be sent per "engine_" + CIRCUMSTANCE_NAME event. Default is set to 10.
   int maxAtPlaceEvents = 3;
@@ -46,9 +44,12 @@ Start tracking Engine's Circumstance events after receiving the Engine started c
   // be sent per "engine_" + CIRCUMSTANCE_NAME event. Default is set to 20.
   int maxNearPlaceEvents = 5;
 
-  [BrazeEngine trackCircumstancesWithEngine:engine
-        withMaxAtPlaceEventsPerCircumstance:maxAtPlaceEvents
-      withMaxNearPlaceEventsPerCircumstance:maxNearPlaceEvents];
+  for (CircumstanceResponse *response in circumstances) {
+    NSLog(@"Sending circumstance with action id: %@ to Braze", [[response circumstance] actionId]);
+    [BrazeEngine pushToBraze:response
+        withMaxAtPlaceEvents:maxAtPlaceEvents
+      withMaxNearPlaceEvents:maxNearPlaceEvents];
+  }
 }
 ```
 
