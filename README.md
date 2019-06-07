@@ -45,7 +45,6 @@ Call the BrazeEngine method for sending a circumstance response to Braze in the 
   int maxNearPlaceEvents = 5;
 
   for (CircumstanceResponse *response in circumstances) {
-    NSLog(@"Sending circumstance with action id: %@ to Braze", [[response circumstance] actionId]);
     [BrazeEngine pushToBraze:response
         withMaxAtPlaceEvents:maxAtPlaceEvents
       withMaxNearPlaceEvents:maxNearPlaceEvents];
@@ -65,11 +64,11 @@ Start tracking User Journey Spans by first adding the `BrazeEngineUserJourneyHan
 
   // Max number of "engine_span_attached_place" events that should be sent per "engine_span_occurred"
   // default is 20.
-  int maxAttachedPlaces = 10;
+  int maxAttachedPlaceEvents = 10;
   [FactualEngine startWithApiKey:[Configuration engineApiKey]
                         delegate:[self engineDelegate]
              userJourneyDelegate:[[BrazeEngineUserJourneyHandler alloc]
-                                   initWithMaxAttachedPlaceEventsPerEvent:maxAttachedPlaces]];
+                                   initWithMaxAttachedPlaceEventsPerEvent:maxAttachedPlaceEvents]];
 
   return YES;
 }
