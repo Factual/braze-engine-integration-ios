@@ -32,7 +32,7 @@ Download the library from [Bintray](https://factual.bintray.com/files/) and add 
 
 ### Tracking Factual Engine Circumstances
 
-Call the BrazeEngine method for sending a circumstance response to Braze in the circumstancesMet callback in FactualEngineDelegate.
+Call the BrazeEngine method for sending a circumstance response to Braze in the `circumstancesMet:` callback in `FactualEngineDelegate`.
 
 ```objective-c
 - (void)circumstancesMet:(nonnull NSArray<CircumstanceResponse *> *)circumstances {

@@ -13,17 +13,16 @@
 
 @implementation BrazeEngine
 
-NSString *CUSTOM_EVENT_ACTION_ID = @"push-to-braze";
 NSString *SOURCE_NAME = @"factual";
 
-NSString *BRAZE_ENGINE_CIRCUMSTANCE_KEY = @"engine_";
+NSString *CIRCUMSTANCE_MET_EVENT_KEY = @"engine_";
 NSString *INCIDENT_ID_KEY = @"incident_id";
 NSString *USER_LATITUDE_KEY = @"user_latitude";
 NSString *USER_LONGITUDE_KEY = @"user_longitude";
 NSString *EVENT_SOURCE_KEY = @"event_source";
 
-NSString *BRAZE_ENGINE_AT_PLACE_EVENT_KEY = @"engine_at_";
-NSString *BRAZE_ENGINE_NEAR_PLACE_EVENT_KEY = @"engine_near_";
+NSString *AT_PLACE_EVENT_KEY = @"engine_at_";
+NSString *NEAR_PLACE_EVENT_KEY = @"engine_near_";
 NSString *PLACE_NAME_KEY = @"name";
 NSString *PLACE_ID_KEY = @"factual_id";
 NSString *PLACE_LATITUDE_KEY = @"latitude";
@@ -51,7 +50,7 @@ withMaxNearPlaceEvents:(int)maxNearPlaceEvents {
   NSNumber *longitude = [NSNumber numberWithDouble:userLocation.coordinate.longitude];
   NSString *incidentId = [[NSUUID UUID] UUIDString];
   
-  NSString *eventKey = [BRAZE_ENGINE_CIRCUMSTANCE_KEY stringByAppendingString:circumstanceName];
+  NSString *eventKey = [CIRCUMSTANCE_MET_EVENT_KEY stringByAppendingString:circumstanceName];
   
   // Populate properties data
   NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
@@ -61,6 +60,7 @@ withMaxNearPlaceEvents:(int)maxNearPlaceEvents {
   [properties setValue:SOURCE_NAME forKey:EVENT_SOURCE_KEY];
   
   // Send to Braze
+  NSLog(@"Sending circumstance %@ event to braze", circumstanceName);
   [[Appboy sharedInstance] logCustomEvent:eventKey withProperties:properties];
   
   // Send any At Places data
@@ -68,7 +68,8 @@ withMaxNearPlaceEvents:(int)maxNearPlaceEvents {
       circumstanceResponse.atPlaces &&
       [circumstanceResponse.atPlaces count] > 0) {
     NSUInteger maxAtPlaces = MIN(maxAtPlaceEvents, [circumstanceResponse.atPlaces count]);
-    NSString * atPlaceEventKey = [BRAZE_ENGINE_AT_PLACE_EVENT_KEY stringByAppendingString:circumstanceName];
+    NSLog(@"Sending %@ at place event(s) to braze", [@(maxAtPlaces) stringValue]);
+    NSString * atPlaceEventKey = [AT_PLACE_EVENT_KEY stringByAppendingString:circumstanceName];
     [self sendPlacesData:circumstanceResponse.atPlaces
            withEventName:atPlaceEventKey
           withProperties:properties
@@ -80,7 +81,8 @@ withMaxNearPlaceEvents:(int)maxNearPlaceEvents {
       circumstanceResponse.nearPlaces &&
       [circumstanceResponse.nearPlaces count] > 0) {
     NSUInteger maxNearPlaces = MIN(maxNearPlaceEvents, [circumstanceResponse.nearPlaces count]);
-    NSString *nearPlaceEventKey = [BRAZE_ENGINE_NEAR_PLACE_EVENT_KEY stringByAppendingString:circumstanceName];
+    NSLog(@"Sending %@ near place event(s) to braze", [@(maxNearPlaces) stringValue]);
+    NSString *nearPlaceEventKey = [NEAR_PLACE_EVENT_KEY stringByAppendingString:circumstanceName];
     [self sendPlacesData:circumstanceResponse.nearPlaces
            withEventName:nearPlaceEventKey
           withProperties:properties

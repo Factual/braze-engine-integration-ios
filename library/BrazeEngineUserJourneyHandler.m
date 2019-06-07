@@ -18,7 +18,7 @@
 }
 
 // Keys
-NSString *ENGINE_SPAN_KEY = @"engine_span_occurred";
+NSString *ENGINE_SPAN_EVENT_KEY = @"engine_span_occurred";
 NSString *SPAN_ID_KEY = @"span_id";
 NSString *SPAN_SOURCE_KEY = @"event-source";
 NSString *SPAN_SOURCE_NAME = @"factual";
@@ -39,7 +39,7 @@ NSString *LOCALITIES_KEY = @"localities";
 NSString *POSTCODE_KEY = @"postcode";
 NSString *REGION_KEY = @"region";
 
-NSString *SPAN_ATTACHED_PLACE_KEY = @"engine_span_attached_place";
+NSString *SPAN_ATTACHED_PLACE_EVENT_KEY = @"engine_span_attached_place";
 NSString *ATTACHED_PLACE_NAME_KEY = @"name";
 NSString *ATTACHED_PLACE_ID_KEY = @"factual_id";
 NSString *ATTACHED_PLACE_LATITUDE_KEY = @"latitude";
@@ -115,21 +115,28 @@ NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
   [properties setValue:region forKey:REGION_KEY];
   
   // Send data to Braze
-  [[Appboy sharedInstance] logCustomEvent:ENGINE_SPAN_KEY withProperties:properties];
+  NSLog(@"Sending user journey span event to braze");
+  [[Appboy sharedInstance] logCustomEvent:ENGINE_SPAN_EVENT_KEY withProperties:properties];
   
-  // Send places data
-  [self sendPlacesData:currentPlace.attachedPlaces withSpanId:spanId];
+  // Get number of attached places to send
+  NSArray<FactualPlace *> *places = currentPlace.attachedPlaces;
+  NSUInteger numPlaceEvents = MIN(_maxAttachedPlacesPerEvent, places.count);
+  
+  // Send attached places data if there are any to send
+  if (numPlaceEvents > 0) {
+    NSLog(@"Sending %@ attached place event(s) to braze", [@(numPlaceEvents) stringValue]);
+    [self sendPlacesData:currentPlace.attachedPlaces withSpanId:spanId withNumAttachedPlaces:numPlaceEvents];
+  }
 }
 
-- (void)sendPlacesData:(NSArray<FactualPlace *>*)places withSpanId:(NSString *)spanId {
-  // Get max number of places to send
-  NSUInteger maxPlaceEvents = MIN(_maxAttachedPlacesPerEvent, places.count);
-  
+- (void)sendPlacesData:(NSArray<FactualPlace *>*)places
+            withSpanId:(NSString *)spanId
+ withNumAttachedPlaces:(NSUInteger)numAttachedPlaces {
   NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
   [properties setValue:spanId forKey:SPAN_ID_KEY];
   
   // Loop through all attached places
-  for (int i = 0; i < maxPlaceEvents; i++) {
+  for (int i = 0; i < numAttachedPlaces; i++) {
     FactualPlace *place = places[i];
     
     // Get categories
@@ -152,7 +159,7 @@ NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
     [properties setValue:place.postcode forKey:POSTCODE_KEY];
     
     // Send data to Braze
-    [[Appboy sharedInstance] logCustomEvent:SPAN_ATTACHED_PLACE_KEY withProperties:properties];
+    [[Appboy sharedInstance] logCustomEvent:SPAN_ATTACHED_PLACE_EVENT_KEY withProperties:properties];
   }
 }
 

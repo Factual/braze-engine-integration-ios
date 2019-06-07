@@ -52,7 +52,6 @@ XCTestExpectation *engineStartedExpectation;
   for (CircumstanceResponse *response in circumstances) {
     NSLog(@"Engine circumstance triggered action: %@", [[response circumstance] actionId]);
     if ([[[response circumstance] actionId] isEqualToString:@"push-to-braze"]) {
-      NSLog(@"Sending circumstance %@ to Braze", [[response circumstance] circumstanceId]);
       [BrazeEngine pushToBraze:response withMaxAtPlaceEvents:1 withMaxNearPlaceEvents:0];
     }
   }
