@@ -12,7 +12,7 @@
 #import "FactualEngine.h"
 
 @interface EngineDelegate : NSObject <FactualEngineDelegate>
-@property (class, readonly) FactualEngine *engine;
++ (FactualEngine *)engine;
 @end
 
 #endif /* EngineDelegate_h */

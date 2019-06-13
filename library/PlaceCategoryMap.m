@@ -501,7 +501,7 @@ static const NSDictionary *map;
   }
   
   NSMutableArray *categories = [[NSMutableArray alloc] init];
-  if (place.categoryIds != (id)[NSNull null]) {
+  if (place.categoryIds != nil && place.categoryIds.count > 0) {
     for (NSNumber *categoryId in place.categoryIds) {
       NSString *category = map[categoryId];
       if (category) {

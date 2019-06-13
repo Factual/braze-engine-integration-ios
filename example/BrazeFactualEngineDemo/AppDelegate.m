@@ -41,7 +41,9 @@
   // authorizations have returned from the user before calling start.
   // Engine will automatically detect for any changes to location
   // authorizations and behave accordingly.
-  [self setEngineDelegate:[[EngineDelegate alloc] init]];
+  if (_engineDelegate == nil) {
+    _engineDelegate = [[EngineDelegate alloc] init];
+  }
   [FactualEngine startWithApiKey:[Configuration engineApiKey]
                         delegate:[self engineDelegate]
              userJourneyDelegate:[[BrazeEngineUserJourneyHandler alloc] init]];

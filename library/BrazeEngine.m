@@ -30,7 +30,7 @@ NSString *PLACE_LONGITUDE_KEY = @"longitude";
 NSString *PLACE_CATEGORIES_KEY = @"category_labels";
 NSString *PLACE_CHAIN_KEY = @"chain_name";
 
-static BOOL trackingSpans = false;
+static BOOL trackingSpans = NO;
 
 + (BOOL)isTrackingSpans {
   return trackingSpans;
@@ -64,43 +64,38 @@ withMaxNearPlaceEvents:(int)maxNearPlaceEvents {
   [[Appboy sharedInstance] logCustomEvent:eventKey withProperties:properties];
   
   // Send any At Places data
-  if (maxAtPlaceEvents > 0 &&
-      circumstanceResponse.atPlaces &&
-      [circumstanceResponse.atPlaces count] > 0) {
-    NSUInteger maxAtPlaces = MIN(maxAtPlaceEvents, [circumstanceResponse.atPlaces count]);
-    NSLog(@"Sending %@ at place event(s) to braze", [@(maxAtPlaces) stringValue]);
+  if (maxAtPlaceEvents > 0 && circumstanceResponse.atPlaces && [circumstanceResponse.atPlaces count] > 0) {
+    NSUInteger numAtPlaces = MIN(maxAtPlaceEvents, [circumstanceResponse.atPlaces count]);
+    NSLog(@"Sending %@ at place event(s) to braze", [@(numAtPlaces) stringValue]);
     NSString * atPlaceEventKey = [AT_PLACE_EVENT_KEY stringByAppendingString:circumstanceName];
     [self sendPlacesData:circumstanceResponse.atPlaces
            withEventName:atPlaceEventKey
           withProperties:properties
-      withMaxPlaceEvents:maxAtPlaces];
+      withNumPlaceEvents:numAtPlaces];
   }
   
   // Send any Near Places data
-  if (maxNearPlaceEvents > 0 &&
-      circumstanceResponse.nearPlaces &&
-      [circumstanceResponse.nearPlaces count] > 0) {
-    NSUInteger maxNearPlaces = MIN(maxNearPlaceEvents, [circumstanceResponse.nearPlaces count]);
-    NSLog(@"Sending %@ near place event(s) to braze", [@(maxNearPlaces) stringValue]);
+  if (maxNearPlaceEvents > 0 && circumstanceResponse.nearPlaces && [circumstanceResponse.nearPlaces count] > 0) {
+    NSUInteger numNearPlaces = MIN(maxNearPlaceEvents, [circumstanceResponse.nearPlaces count]);
+    NSLog(@"Sending %@ near place event(s) to braze", [@(numNearPlaces) stringValue]);
     NSString *nearPlaceEventKey = [NEAR_PLACE_EVENT_KEY stringByAppendingString:circumstanceName];
     [self sendPlacesData:circumstanceResponse.nearPlaces
            withEventName:nearPlaceEventKey
           withProperties:properties
-      withMaxPlaceEvents:maxNearPlaces];
+      withNumPlaceEvents:numNearPlaces];
   }
 }
 
 + (void)sendPlacesData:(NSArray<FactualPlace *> *)places
          withEventName:(NSString *)eventName
         withProperties:(NSMutableDictionary *)properties
-    withMaxPlaceEvents:(NSUInteger)maxPlaceEvents {
+    withNumPlaceEvents:(NSUInteger)numPlaceEvents {
   // Loop through each place up to maxPlaceEvents
-  for (int i = 0; i < maxPlaceEvents; i++) {
+  for (int i = 0; i < numPlaceEvents; i++) {
     FactualPlace *place = places[i];
-    // Get categoires
-    NSString *categories = [[PlaceCategoryMap getCategoriesFromPlace:place] componentsJoinedByString:@", "];
     
-    // Get chain
+    // Get place data
+    NSString *categories = [[PlaceCategoryMap getCategoriesFromPlace:place] componentsJoinedByString:@", "];
     NSString *chain = [PlaceChainMap getChainFromPlace:place];
     
     // Populate properties data
@@ -118,12 +113,12 @@ withMaxNearPlaceEvents:(int)maxNearPlaceEvents {
 
 + (void)trackUserJourneySpans {
   NSLog(@"Enabling Braze -> Engine span logging");
-  trackingSpans = true;
+  trackingSpans = YES;
 }
 
 + (void)stopTrackingUserJourneySpans {
   NSLog(@"Disabling Braze -> Engine span logging");
-  trackingSpans = false;
+  trackingSpans = NO;
 }
 
 @end

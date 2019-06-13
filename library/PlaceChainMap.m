@@ -1844,7 +1844,7 @@ static const NSDictionary *map;
   }
   
   NSString *chain = @"";
-  if (place.chainId != (id)[NSNull null]) {
+  if (place.chainId != nil && ![place.chainId isEqualToString:@""]) {
     NSString *chainString = map[place.chainId];
     if (chainString) {
       chain = chainString;

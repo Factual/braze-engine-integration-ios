@@ -94,7 +94,7 @@ NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
   NSString *region = geographies.region;
   
   // Get duration of span
-  NSNumber *duration = !startTimestampUnavailable && !endTimestampUnavailable ? @(endTimestamp - startTimestamp) : 0;
+  NSNumber *duration = !startTimestampUnavailable && !endTimestampUnavailable ? @(endTimestamp - startTimestamp) : @(0);
   
   // Populate properties data
   NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
@@ -139,10 +139,8 @@ NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
   for (int i = 0; i < numAttachedPlaces; i++) {
     FactualPlace *place = places[i];
     
-    // Get categories
+    // Get place data
     NSString *categories = [[PlaceCategoryMap getCategoriesFromPlace:place] componentsJoinedByString:@", "];
-    
-    // Get chain
     NSString *chain = [PlaceChainMap getChainFromPlace:place];
     
     // Populate properties data

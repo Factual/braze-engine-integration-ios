@@ -1,10 +1,10 @@
-# Factual / Braze SDK for iOS ![Build Status](https://app.bitrise.io/app/bb3d485c0cc10e61/status.svg?token=sim5yL-dAnFIJN_IpelktQ&branch=feature/spans)
+# Factual / Braze SDK for iOS ![Build Status](https://app.bitrise.io/app/bb3d485c0cc10e61/status.svg?token=sim5yL-dAnFIJN_IpelktQ&branch=master)
 
 This repository contains the code for an integration between [Factual's Engine SDK](https://www.factual.com/products/engine/) and [Braze's Mobile SDK](https://www.braze.com/). Using this library you can configure Factual's Location Engine SDK to send custom events to Braze to better understand users in the physical world and build personalized experiences to drive user engagement and revenue.
 
 ### Integration with Braze UI
 
-see: [braze-engine-integration](https://github.com/Factual/braze-engine-integration)
+see: [engine-braze-integration](https://github.com/Factual/engine-braze-integration)
 
 # Installation
 
