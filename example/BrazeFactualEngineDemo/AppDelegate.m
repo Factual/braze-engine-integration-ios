@@ -45,7 +45,7 @@
     _engineDelegate = [[EngineDelegate alloc] init];
   }
   [FactualEngine startWithApiKey:[Configuration engineApiKey]
-                        delegate:[self engineDelegate]
+                        delegate:_engineDelegate
              userJourneyDelegate:[[BrazeEngineUserJourneyHandler alloc] init]];
   
   [Appboy startWithApiKey:[Configuration brazeApiKey]

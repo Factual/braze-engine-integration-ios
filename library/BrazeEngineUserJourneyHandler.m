@@ -115,7 +115,7 @@ NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
   [properties setValue:region forKey:REGION_KEY];
   
   // Send data to Braze
-  NSLog(@"Sending user journey span event to braze");
+  NSLog(@"Sending user journey span event to Braze");
   [[Appboy sharedInstance] logCustomEvent:ENGINE_SPAN_EVENT_KEY withProperties:properties];
   
   // Get number of attached places to send
@@ -124,8 +124,8 @@ NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
   
   // Send attached places data if there are any to send
   if (numPlaceEvents > 0) {
-    NSLog(@"Sending %@ attached place event(s) to braze", [@(numPlaceEvents) stringValue]);
-    [self sendPlacesData:currentPlace.attachedPlaces withSpanId:spanId withNumAttachedPlaces:numPlaceEvents];
+    NSLog(@"Sending %@ attached place event(s) to Braze", [@(numPlaceEvents) stringValue]);
+    [self sendPlacesData:places withSpanId:spanId withNumAttachedPlaces:numPlaceEvents];
   }
 }
 

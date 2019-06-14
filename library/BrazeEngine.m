@@ -60,13 +60,13 @@ withMaxNearPlaceEvents:(int)maxNearPlaceEvents {
   [properties setValue:SOURCE_NAME forKey:EVENT_SOURCE_KEY];
   
   // Send to Braze
-  NSLog(@"Sending circumstance %@ event to braze", circumstanceName);
+  NSLog(@"Sending circumstance %@ event to Braze", circumstanceName);
   [[Appboy sharedInstance] logCustomEvent:eventKey withProperties:properties];
   
   // Send any At Places data
   if (maxAtPlaceEvents > 0 && circumstanceResponse.atPlaces && [circumstanceResponse.atPlaces count] > 0) {
     NSUInteger numAtPlaces = MIN(maxAtPlaceEvents, [circumstanceResponse.atPlaces count]);
-    NSLog(@"Sending %@ at place event(s) to braze", [@(numAtPlaces) stringValue]);
+    NSLog(@"Sending %@ at place event(s) to Braze", [@(numAtPlaces) stringValue]);
     NSString * atPlaceEventKey = [AT_PLACE_EVENT_KEY stringByAppendingString:circumstanceName];
     [self sendPlacesData:circumstanceResponse.atPlaces
            withEventName:atPlaceEventKey
@@ -77,7 +77,7 @@ withMaxNearPlaceEvents:(int)maxNearPlaceEvents {
   // Send any Near Places data
   if (maxNearPlaceEvents > 0 && circumstanceResponse.nearPlaces && [circumstanceResponse.nearPlaces count] > 0) {
     NSUInteger numNearPlaces = MIN(maxNearPlaceEvents, [circumstanceResponse.nearPlaces count]);
-    NSLog(@"Sending %@ near place event(s) to braze", [@(numNearPlaces) stringValue]);
+    NSLog(@"Sending %@ near place event(s) to Braze", [@(numNearPlaces) stringValue]);
     NSString *nearPlaceEventKey = [NEAR_PLACE_EVENT_KEY stringByAppendingString:circumstanceName];
     [self sendPlacesData:circumstanceResponse.nearPlaces
            withEventName:nearPlaceEventKey
