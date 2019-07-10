@@ -17,7 +17,7 @@
 
 @implementation AppboyEndpointDelegate
 - (NSString *) getApiEndpoint:(NSString *)appboyApiEndpoint {
-  return [appboyApiEndpoint stringByReplacingOccurrencesOfString:@"dev.appboy.com" withString:[Configuration brazeEndpoint]];
+  return [appboyApiEndpoint stringByReplacingOccurrencesOfString:@"sdk.iad-01.braze.com" withString:[Configuration brazeEndpoint]];
 }
 @end
 
