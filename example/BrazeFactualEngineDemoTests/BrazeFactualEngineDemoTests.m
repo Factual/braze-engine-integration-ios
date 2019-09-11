@@ -12,16 +12,6 @@
 #import "StubEngineDelegate.h"
 #import <XCTest/XCTest.h>
 
-@interface StubAppboyEndpointDelegate : NSObject <ABKAppboyEndpointDelegate>
-@end
-
-@implementation StubAppboyEndpointDelegate
-- (NSString *) getApiEndpoint:(NSString *)appboyApiEndpoint {
-  return [appboyApiEndpoint stringByReplacingOccurrencesOfString:@"dev.appboy.com" withString:[StubConfiguration brazeEndpoint]];
-}
-
-@end
-
 @interface BrazeFactualEngineDemoTests : XCTestCase
 
 @end
@@ -53,8 +43,7 @@ NSString *EVENT_DATE_KEY = @"last";
     
     [Appboy startWithApiKey:[StubConfiguration brazeApiKey]
               inApplication:[UIApplication sharedApplication]
-          withLaunchOptions:nil
-          withAppboyOptions:@{ABKAppboyEndpointDelegateKey: [[StubAppboyEndpointDelegate alloc] init]}];
+          withLaunchOptions:nil];
     
     [[Appboy sharedInstance] changeUser:[StubConfiguration testUser]];
     [[[Appboy sharedInstance] user] setEmail:[StubConfiguration testEmail]];

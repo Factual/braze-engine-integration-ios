@@ -19,10 +19,6 @@
   return @"Your Braze SDK API Key here";
 }
 
-+ (NSString *)brazeEndpoint {
-  return @"Your Braze SDK Endpoint here";
-}
-
 + (NSString *)brazeUser {
   return @"Your Braze User ID here";
 }

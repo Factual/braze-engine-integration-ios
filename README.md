@@ -54,8 +54,7 @@ Call the BrazeEngine method for sending a circumstance response to Braze in the 
 
 ### Tracking Factual Engine User Journey Spans
 
-Start tracking User Journey Spans by first adding the `BrazeEngineUserJourneyHandler` delegate on
-`[FactualEngine startWithApiKey:delegate:userJourneyDelegate:]`
+Start tracking User Journey Spans by first adding the `BrazeEngineUserJourneyHandler` delegate on `[FactualEngine startWithApiKey:delegate:userJourneyDelegate:]`
 
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

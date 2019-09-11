@@ -50,8 +50,8 @@ FactualEngine *_engine = nil;
 
 - (void)circumstancesMet:(nonnull NSArray<CircumstanceResponse *> *)circumstances {
   for (CircumstanceResponse *response in circumstances) {
-    NSLog(@"Engine circumstance triggered action: %@", [[response circumstance] actionId]);
-    if ([[[response circumstance] actionId] isEqualToString:@"push-to-braze"]) {
+    NSLog(@"Engine triggered circumstance: %@", [[response circumstance] name]);
+    if ([[[response circumstance] tags] containsObject:@"push-to-braze"]) {
       [BrazeEngine pushToBraze:response];
     }
   }

@@ -14,7 +14,6 @@
 @interface StubConfiguration : NSObject
 + (NSString *)engineApiKey;
 + (NSString *)brazeApiKey;
-+ (NSString *)brazeEndpoint;
 + (NSString *)brazeRestApiKey;
 + (NSString *)brazeRestEndpoint;
 

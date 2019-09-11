@@ -17,6 +17,7 @@ NSString *SOURCE_NAME = @"factual";
 
 NSString *CIRCUMSTANCE_MET_EVENT_KEY = @"engine_";
 NSString *INCIDENT_ID_KEY = @"incident_id";
+NSString *TAGS_KEY = @"tags";
 NSString *USER_LATITUDE_KEY = @"user_latitude";
 NSString *USER_LONGITUDE_KEY = @"user_longitude";
 NSString *EVENT_SOURCE_KEY = @"event_source";
@@ -46,6 +47,7 @@ withMaxNearPlaceEvents:(int)maxNearPlaceEvents {
   // Circumstance information
   NSString *circumstanceName = [[circumstanceResponse circumstance] name];
   CLLocation *userLocation = [circumstanceResponse deviceLocation];
+  NSString *tags = [[[circumstanceResponse circumstance] tags] componentsJoinedByString:@", "];
   NSNumber *latitude = [NSNumber numberWithDouble:userLocation.coordinate.latitude];
   NSNumber *longitude = [NSNumber numberWithDouble:userLocation.coordinate.longitude];
   NSString *incidentId = [[NSUUID UUID] UUIDString];
@@ -55,6 +57,7 @@ withMaxNearPlaceEvents:(int)maxNearPlaceEvents {
   // Populate properties data
   NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
   [properties setValue:incidentId forKey:INCIDENT_ID_KEY];
+  [properties setValue:tags forKey:TAGS_KEY];
   [properties setValue:latitude forKey:USER_LATITUDE_KEY];
   [properties setValue:longitude forKey:USER_LONGITUDE_KEY];
   [properties setValue:SOURCE_NAME forKey:EVENT_SOURCE_KEY];

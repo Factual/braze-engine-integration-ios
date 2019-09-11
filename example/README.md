@@ -18,7 +18,7 @@ pod install
 
 **(3)** Locate your Braze SDK API Key for your app from the [Braze Dashboard](https://dashboard.braze.com) in **Developer Console** under the **APP SETTINGS** tab.  Go to **Identification** and use the API Key listed for your app.
 
-**(4)** Add your Braze API Key to [Configuration.m](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemo/Configuration.m#L19)
+**(4)** Add your Braze API Key to [Info.plist](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemo/Info.plist#L8)
 
 **(5)** Determine your [Braze Endpoint](https://www.braze.com/docs/user_guide/administrative/access_braze/sdk_endpoints/) and add it to [Configuration.m](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemo/Configuration.m#L23).
 
@@ -32,4 +32,4 @@ From here, you can setup Braze to trigger actions based on Engine custom events.
 
 ### Testing
 
-If you'd like to test the integration, an example test is given.  To run the test, fill out your information in [StubConfiguration.m](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemoTests/StubConfiguration.m).  Change the `testLatitude` and `testLongitude` variables to coordinates of a place which would trigger your Engine Circumstance.
+If you'd like to test the integration, an example test is given.  To run the test, fill out your information in [StubConfiguration.m](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemoTests/StubConfiguration.m), change the `testLatitude` and `testLongitude` variables to coordinates of a place which would trigger your Engine Circumstance, and add your Braze Endpoint to the test's [Info.plist](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemoTests/Info.plist#L8)

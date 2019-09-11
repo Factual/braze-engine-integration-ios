@@ -18,10 +18,6 @@
   return @"Your Braze API Key here";
 }
 
-+ (NSString *)brazeEndpoint {
-  return @"Your Braze SDK Endpoint here";
-}
-
 + (NSString *)brazeRestApiKey {
   return @"Your Braze Rest API Key here";
 }
