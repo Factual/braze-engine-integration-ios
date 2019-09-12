@@ -12,7 +12,6 @@
 @interface Configuration : NSObject
 + (NSString *)engineApiKey;
 + (NSString *)brazeApiKey;
-+ (NSString *)brazeEndpoint;
 + (NSString *)brazeUser;
 + (NSString *)brazeUserEmail;
 @end

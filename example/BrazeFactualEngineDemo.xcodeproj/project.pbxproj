@@ -315,14 +315,12 @@
 				"${PODS_ROOT}/Target Support Files/Pods-BrazeFactualEngineDemo/Pods-BrazeFactualEngineDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Appboy-iOS-SDK/Appboy_iOS_SDK.framework",
 				"${BUILT_PRODUCTS_DIR}/BButton/BButton.framework",
-				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Appboy_iOS_SDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

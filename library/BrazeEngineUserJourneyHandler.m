@@ -89,7 +89,7 @@ NSString *ATTACHED_PLACE_LOCALITY_KEY = @"locality";
   // Geographies information
   Geographies *geographies = currentPlace.geographies;
   NSString *country = geographies.country;
-  NSArray<NSString*> *localities = geographies.localities;
+  NSString *localities = [geographies.localities componentsJoinedByString:@", "];
   NSString *postcode = geographies.postcode;
   NSString *region = geographies.region;
   

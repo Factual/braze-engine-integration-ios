@@ -12,15 +12,6 @@
 #import "EngineDelegate.h"
 #import "FactualEngine.h"
 
-@interface AppboyEndpointDelegate : NSObject <ABKAppboyEndpointDelegate>
-@end
-
-@implementation AppboyEndpointDelegate
-- (NSString *) getApiEndpoint:(NSString *)appboyApiEndpoint {
-  return [appboyApiEndpoint stringByReplacingOccurrencesOfString:@"sdk.iad-01.braze.com" withString:[Configuration brazeEndpoint]];
-}
-@end
-
 @interface AppDelegate ()
 @property CLLocationManager *manager; // Engine assumes you are managing location permissions
 @property EngineDelegate *engineDelegate;
@@ -50,8 +41,7 @@
   
   [Appboy startWithApiKey:[Configuration brazeApiKey]
             inApplication:application
-        withLaunchOptions:launchOptions
-        withAppboyOptions:@{ABKAppboyEndpointDelegateKey: [[AppboyEndpointDelegate alloc] init]}];
+        withLaunchOptions:launchOptions];
   
   [[Appboy sharedInstance] changeUser:[Configuration brazeUser]];
   [[[Appboy sharedInstance] user] setEmail:[Configuration brazeUserEmail]];
