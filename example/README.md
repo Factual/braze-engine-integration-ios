@@ -10,9 +10,9 @@ pod install
 
 ### Configuration
 
-**(1)** Locate your Factual Engine API Key from the [Factual Engine Dashboard](https://engine.factual.com/garage)
+**(1)** Locate your Factual Engine API Key from the [Factual Engine Dashboard](https://engine.factual.com/)
 
-![Dashboard image](./images/apikey.png)
+![Engine API Key](./images/apikey.png)
 
 **(2)** Add your Factual Location Engine API Key to [Configuration.m](https://github.com/Factual/engine-braze-integration-ios/blob/master/example/BrazeFactualEngineDemo/Configuration.m#L15).
 
